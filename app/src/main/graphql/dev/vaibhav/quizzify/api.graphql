@@ -1,0 +1,152 @@
+query GetUserById($userId: String!){
+    user_by_pk(userId: $userId) {
+        email
+        exp
+        profilePic
+        userId
+        username
+    }
+}
+
+mutation SaveUser(
+    $userId:String
+    $username:String
+    $email:String
+    $profilePic:String
+    $exp:Int
+){
+    insert_user_one(object: {username: $username email: $email profilePic: $profilePic userId: $userId exp: $exp}){
+        userId
+        username
+        email
+        profilePic
+        exp
+    }
+}
+
+mutation UpdateUserAvatar($userId: String!, $avatar: String) {
+  update_user_by_pk(_set: {profilePic: $avatar}, pk_columns: {userId: $userId}){
+    userId
+  }
+}
+
+
+query GetAllQuizzes {
+    quiz {
+        category {
+            id
+            image
+            name
+        }
+        createdBy
+        createdByUserId
+        description
+        id
+        name
+        questions
+        votes
+    }
+}
+
+query GetAllCategories {
+    category {
+        id
+        image
+        name
+    }
+}
+
+mutation SaveNewQuiz(
+    $id:String,
+    $categoryId:String,
+    $createdBy:String,
+    $createdByUserId:String,
+    $description:String,
+    $name:String,
+    $questions:String,
+    $votes:Int,
+) {
+    insert_quiz_one(object: {
+        id: $id,
+        categoryId: $categoryId,
+        createdBy: $createdBy,
+        createdByUserId: $createdByUserId,
+        description: $description,
+        name: $name,
+        questions: $questions,
+        votes: $votes
+    }){
+        id
+    }
+}
+
+mutation UpVoteQuiz($id: String!, $votes: Int!) {
+    update_quiz_by_pk(pk_columns: {id: $id}, _set: {votes: $votes}) {
+        id
+    }
+}
+
+mutation UpsertGame(
+    $gameId: String
+    $hostId: String
+    $quiz: String
+    $gameState: String
+    $inviteCode: String
+    $players: String
+) {
+    insert_game_one(object: {
+        gameId: $gameId,
+        gameState: $gameState,
+        hostId: $hostId,
+        inviteCode: $inviteCode,
+        players: $players,
+        quiz: $quiz
+    }, on_conflict: {constraint: game_pkey, update_columns: [gameState, players]}) {
+        gameId
+    }
+}
+
+query GetGameById($gameId: String!) {
+    game_by_pk(gameId: $gameId) {
+        gameId
+        gameState
+        hostId
+        inviteCode
+        players
+        quiz
+    }
+}
+
+query GetAllGames {
+    game {
+        gameId
+        gameState
+        hostId
+        inviteCode
+        players
+        quiz
+    }
+}
+
+mutation UpdateGameState($gameId: String!, $gameState: String!) {
+    update_game_by_pk(pk_columns: {gameId: $gameId}, _set: {gameState: $gameState}) {
+        gameId
+    }
+}
+
+mutation UpdatePlayers ($gameId: String!, $players: String!) {
+    update_game_by_pk(pk_columns: {gameId: $gameId}, _set: {players: $players}) {
+        gameId
+    }
+}
+
+subscription ObserveGame($gameId: String!) {
+    game_by_pk(gameId: $gameId) {
+        gameId
+        gameState
+        hostId
+        inviteCode
+        players
+        quiz
+    }
+}
