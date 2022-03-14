@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.view.animation.AnimationUtils
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.lifecycle.lifecycleScope
 import dagger.hilt.android.AndroidEntryPoint
 import dev.vaibhav.quizzify.R
@@ -23,10 +22,10 @@ class SplashActivity : AppCompatActivity() {
     private val binding by viewBinding(ActivitySplashBinding::inflate)
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        val splashScreen = installSplashScreen()
+//        val splashScreen = installSplashScreen()
         super.onCreate(savedInstanceState)
         collectUiEvents()
-        splashScreen.setKeepOnScreenCondition { true }
+//        splashScreen.setKeepOnScreenCondition { true }
         setContentView(binding.root)
         makeStatusBarTransparent()
         animateLogo()

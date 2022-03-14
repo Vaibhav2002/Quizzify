@@ -26,7 +26,7 @@
 
     <style name="Theme.Quizzify.Starting" parent="Theme.SplashScreen">
         <item name="windowSplashScreenBackground">@color/surface</item>
-<!--        <item name="windowSplashScreenAnimatedIcon">@drawable/ic_kogo</item>-->
+        <item name="windowSplashScreenAnimatedIcon">@mipmap/ic_logo_round</item>
         <item name="postSplashScreenTheme">@style/Theme.Quizzify.FullScreen</item>
         <item name="windowSplashScreenAnimationDuration">1500</item>
     </style>

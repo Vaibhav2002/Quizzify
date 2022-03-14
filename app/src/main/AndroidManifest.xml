@@ -19,7 +19,7 @@
             android:name=".ui.screens.splashScreen.SplashActivity"
             android:exported="true"
             android:screenOrientation="portrait"
-            android:theme="@style/Theme.Quizzify.Starting">
+            android:theme="@style/Theme.Quizzify.FullScreen">
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
