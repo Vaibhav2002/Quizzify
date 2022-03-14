@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/dialog_inset_bg">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="Create Question"
+            android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Headline6" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/questionTIL"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="24dp"
+            android:layout_marginTop="24dp"
+            android:hint="Question">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/questionTIET"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:maxLines="3"
+                android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Body2" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="16dp"
+            android:text="Options"
+            android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Subtitle1" />
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/option1TIL"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="24dp"
+            android:layout_marginTop="8dp"
+            android:hint="Option 1">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/option1TIET"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Body2" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/option2TIL"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="24dp"
+            android:layout_marginTop="4dp"
+            android:hint="Option 2">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/option2TIET"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Body2" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/option3TIL"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="24dp"
+            android:layout_marginTop="4dp"
+            android:hint="Option 3">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/option3TIET"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Body2" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/option4TIL"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="24dp"
+            android:layout_marginTop="4dp"
+            android:hint="Option 4">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/option4TIET"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Body2" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="16dp"
+            android:text="Answer"
+            android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Subtitle1" />
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/answerTIL"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="24dp"
+            android:layout_marginTop="4dp"
+            android:hint="Answer">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/answerTIET"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Body2" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/saveBtn"
+            style="@style/PrimaryButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="24dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="24dp"
+            android:text="Save" />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bottom_card_bg"
+    android:orientation="vertical"
+    tools:context=".ui.screens.gameScreens.ranking.RankingFragment">
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:text="Ranking"
+        android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Headline5"
+        android:textColor="?attr/colorOnBackground" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/playerRv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        tools:itemCount="5"
+        tools:listitem="@layout/player_list_item" />
+
+</LinearLayout>

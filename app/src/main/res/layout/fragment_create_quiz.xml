@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/backgroundColor"
+    tools:context=".ui.screens.quizScreens.createQuiz.CreateQuizFragment">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/header"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="32dp"
+                android:text="Create Quiz"
+                android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Headline4"
+                android:textColor="?attr/colorOnBackground"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/nameTIL"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="24dp"
+                android:hint="Name"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/header">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/nameTIET"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text"
+                    android:maxLength="15"
+                    android:maxLines="1"
+                    android:singleLine="true"
+                    android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Body1" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/decsriptionTIL"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:hint="Description"
+                app:layout_constraintEnd_toEndOf="@+id/nameTIL"
+                app:layout_constraintStart_toStartOf="@+id/nameTIL"
+                app:layout_constraintTop_toBottomOf="@+id/nameTIL">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/descriptionTIET"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text"
+                    android:maxLength="50"
+                    android:maxLines="2"
+                    android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Body2" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/categoryQuiz"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:hint="Category"
+                app:layout_constraintEnd_toEndOf="@+id/decsriptionTIL"
+                app:layout_constraintStart_toStartOf="@+id/decsriptionTIL"
+                app:layout_constraintTop_toBottomOf="@id/decsriptionTIL">
+
+                <com.google.android.material.textfield.MaterialAutoCompleteTextView
+                    android:id="@+id/categorySpinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="none"
+                    android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Body1" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Questions"
+                android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Headline6"
+                android:textColor="?attr/colorOnBackground"
+                app:layout_constraintBottom_toBottomOf="@+id/addQuestionBtn"
+                app:layout_constraintStart_toStartOf="@+id/categoryQuiz"
+                app:layout_constraintTop_toTopOf="@+id/addQuestionBtn" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/addQuestionBtn"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Add"
+                app:icon="@drawable/ic_baseline_add_24"
+                app:layout_constraintEnd_toEndOf="@+id/categoryQuiz"
+                app:layout_constraintTop_toBottomOf="@+id/categoryQuiz" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/questionRv"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="16dp"
+                android:clipToPadding="false"
+                android:paddingBottom="100dp"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintEnd_toEndOf="@id/decsriptionTIL"
+                app:layout_constraintStart_toStartOf="@id/decsriptionTIL"
+                app:layout_constraintTop_toBottomOf="@id/addQuestionBtn"
+                tools:itemCount="3"
+                tools:listitem="@layout/question_item" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+
+
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        android:id="@+id/saveQuizBtn"
+        style="@style/SquarishExtendedFab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:shadowColor="@color/lt_deepblue"
+        android:text="Save Quiz"
+        android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/progressContainer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        app:cardCornerRadius="@dimen/loadingAnimCorner"
+        app:cardElevation="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:visibility="visible">
+
+        <include
+            android:id="@+id/progressBar"
+            layout="@layout/progress_bar" />
+
+    </com.google.android.material.card.MaterialCardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/backgroundColor"
+    tools:context=".ui.screens.quizScreens.quizDetails.QuizDetailsFragment">
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_margin="32dp"
+        app:layout_constraintBottom_toTopOf="@+id/materialCardView4"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/gaming_anim" />
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/materialCardView4"
+        style="@style/TopRoundedCard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor="?attr/colorSurface"
+        app:cardElevation="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/materialCardView2"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="32dp"
+                app:cardBackgroundColor="@android:color/transparent"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="0dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:strokeColor="@color/gray3"
+                app:strokeWidth="0.5dp">
+
+                <ImageView
+                    android:id="@+id/categoryImage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="16dp"
+                    tools:src="@drawable/book" />
+
+
+            </com.google.android.material.card.MaterialCardView>
+
+
+            <LinearLayout
+                android:id="@+id/linearLayout3"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toBottomOf="@+id/materialCardView2"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/materialCardView2"
+                app:layout_constraintTop_toTopOf="@+id/materialCardView2">
+
+
+                <TextView
+                    android:id="@+id/titleTv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:maxLines="2"
+                    android:text="@{quiz.name}"
+                    android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Headline5"
+                    android:textColor="?attr/colorOnSurface"
+                    android:transitionName="@string/shared_quiz_title"
+                    tools:text="Hello Quiz" />
+
+                <TextView
+                    android:id="@+id/descriptionTv"
+                    style="@style/secondaryText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:ellipsize="end"
+                    android:maxLines="4"
+                    android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Body1"
+                    tools:text="This quiz is made to test your knowledge on Books" />
+
+            </LinearLayout>
+
+
+            <TextView
+                android:id="@+id/questionTv"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="56dp"
+                android:ellipsize="end"
+                android:maxLines="2"
+                android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Headline6"
+                android:textColor="?attr/colorOnSurface"
+                app:layout_constraintEnd_toEndOf="@+id/linearLayout3"
+                app:layout_constraintStart_toStartOf="@+id/materialCardView2"
+                app:layout_constraintTop_toBottomOf="@+id/materialCardView2"
+                tools:text="Questions: 10" />
+
+            <TextView
+                android:id="@+id/categoryTv"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:ellipsize="end"
+                android:maxLines="2"
+                android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Headline6"
+                android:textColor="?attr/colorOnSurface"
+                app:layout_constraintEnd_toEndOf="@+id/linearLayout3"
+                app:layout_constraintStart_toStartOf="@+id/materialCardView2"
+                app:layout_constraintTop_toBottomOf="@+id/questionTv"
+                tools:text="Category: Books" />
+
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/playWithFriendsBtn"
+                style="@style/PrimaryButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="64dp"
+                android:text="Play with Friends"
+                android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Button"
+                app:layout_constraintBottom_toTopOf="@+id/playSoloBtn"
+                app:layout_constraintEnd_toEndOf="@+id/categoryTv"
+                app:layout_constraintStart_toStartOf="@+id/categoryTv"
+                app:layout_constraintTop_toBottomOf="@+id/categoryTv" />
+
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/playSoloBtn"
+                style="@style/OutlinedButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="32dp"
+                android:text="Play solo"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/playWithFriendsBtn"
+                app:layout_constraintStart_toStartOf="@+id/playWithFriendsBtn" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/progressContainer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        app:cardCornerRadius="@dimen/loadingAnimCorner"
+        app:cardElevation="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:visibility="visible">
+
+        <include
+            android:id="@+id/progressBar"
+            layout="@layout/progress_bar" />
+
+    </com.google.android.material.card.MaterialCardView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

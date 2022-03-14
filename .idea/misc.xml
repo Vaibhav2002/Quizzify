@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/AndroidStudioProjects/Quizzify/app/src/main/res/drawable-v24/google.xml" value="0.2355" />
+        <entry key="..\:/AndroidStudioProjects/Quizzify/app/src/main/res/drawable-v24/profile.xml" value="0.2355" />
+        <entry key="..\:/AndroidStudioProjects/Quizzify/app/src/main/res/drawable-v24/round_fab_button.xml" value="0.1675" />
+        <entry key="..\:/AndroidStudioProjects/Quizzify/app/src/main/res/drawable/bottom_card_bg.xml" value="0.2495" />
+        <entry key="..\:/AndroidStudioProjects/Quizzify/app/src/main/res/drawable/bottom_sheet_rounded_bg.xml" value="0.239" />
+        <entry key="..\:/AndroidStudioProjects/Quizzify/app/src/main/res/drawable/dialog_background.xml" value="0.2435" />
+        <entry key="..\:/AndroidStudioProjects/Quizzify/app/src/main/res/drawable/dialog_inset_bg.xml" value="0.2435" />
+        <entry key="..\:/AndroidStudioProjects/Quizzify/app/src/main/res/drawable/drawable_inset_bg.xml" value="0.2435" />
+        <entry key="..\:/AndroidStudioProjects/Quizzify/app/src/main/res/drawable/email.xml" value="0.2355" />
+        <entry key="..\:/AndroidStudioProjects/Quizzify/app/src/main/res/drawable/filled_round_button.xml" value="0.2355" />
+        <entry key="..\:/AndroidStudioProjects/Quizzify/app/src/main/res/drawable/getting_started_button_layout.xml" value="0.2355" />
+        <entry key="..\:/AndroidStudioProjects/Quizzify/app/src/main/res/drawable/ic_about.xml" value="0.1675" />
+        <entry key="..\:/AndroidStudioProjects/Quizzify/app/src/main/res/drawable/ic_baseline_close_24.xml" value="0.193" />
+        <entry key="..\:/AndroidStudioProjects/Quizzify/app/src/main/res/drawable/ic_copy.xml" value="0.2435" />
+        <entry key="..\:/AndroidStudioProjects/Quizzify/app/src/main/res/drawable/ic_home_icon.xml" value="0.19" />
+        <entry key="..\:/AndroidStudioProjects/Quizzify/app/src/main/res/drawable/ic_logout.xml" value="0.1675" />
+        <entry key="..\:/AndroidStudioProjects/Quizzify/app/src/main/res/drawable/ic_selected_option.xml" value="0.252" />
+        <entry key="..\:/AndroidStudioProjects/Quizzify/app/src/main/res/drawable/lock.xml" value="0.2355" />
+        <entry key="..\:/AndroidStudioProjects/Quizzify/app/src/main/res/drawable/outlined_layout_bg.xml" value="0.2435" />
+        <entry key="..\:/AndroidStudioProjects/Quizzify/app/src/main/res/drawable/profile_banner.xml" value="0.123" />
+        <entry key="..\:/AndroidStudioProjects/Quizzify/app/src/main/res/drawable/round_fab_button.xml" value="0.1675" />
+        <entry key="..\:/AndroidStudioProjects/Quizzify/app/src/main/res/drawable/rounded_edit_text_bg.xml" value="0.1675" />
+        <entry key="..\:/AndroidStudioProjects/Quizzify/app/src/main/res/layout/activity_auth.xml" value="0.3375" />
+        <entry key="..\:/AndroidStudioProjects/Quizzify/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/AndroidStudioProjects/Quizzify/app/src/main/res/layout/activity_on_boarding.xml" value="0.28858486532706284" />
+        <entry key="..\:/AndroidStudioProjects/Quizzify/app/src/main/res/layout/activity_splash.xml" value="0.25" />
+        <entry key="..\:/AndroidStudioProjects/Quizzify/app/src/main/res/layout/avatar_item.xml" value="0.2851646002565199" />
+        <entry key="..\:/AndroidStudioProjects/Quizzify/app/src/main/res/layout/category_item.xml" value="0.67" />
+        <entry key="..\:/AndroidStudioProjects/Quizzify/app/src/main/res/layout/create_option_item.xml" value="0.28858486532706284" />
+        <entry key="..\:/AndroidStudioProjects/Quizzify/app/src/main/res/layout/custom_spinner_item.xml" value="0.28858486532706284" />
+        <entry key="..\:/AndroidStudioProjects/Quizzify/app/src/main/res/layout/custom_spinner_item_small.xml" value="0.28858486532706284" />
+        <entry key="..\:/AndroidStudioProjects/Quizzify/app/src/main/res/layout/fragment_about.xml" value="0.25" />
+        <entry key="..\:/AndroidStudioProjects/Quizzify/app/src/main/res/layout/fragment_add_question.xml" value="0.25" />
+        <entry key="..\:/AndroidStudioProjects/Quizzify/app/src/main/res/layout/fragment_avatar_select.xml" value="0.2736212056434374" />
+        <entry key="..\:/AndroidStudioProjects/Quizzify/app/src/main/res/layout/fragment_community.xml" value="0.33" />
+        <entry key="..\:/AndroidStudioProjects/Quizzify/app/src/main/res/layout/fragment_create_quiz.xml" value="0.25" />
+        <entry key="..\:/AndroidStudioProjects/Quizzify/app/src/main/res/layout/fragment_error_dialog.xml" value="0.2851646002565199" />
+        <entry key="..\:/AndroidStudioProjects/Quizzify/app/src/main/res/layout/fragment_favourits.xml" value="0.27704147071398033" />
+        <entry key="..\:/AndroidStudioProjects/Quizzify/app/src/main/res/layout/fragment_game.xml" value="0.25" />
+        <entry key="..\:/AndroidStudioProjects/Quizzify/app/src/main/res/layout/fragment_getting_started.xml" value="0.33" />
+        <entry key="..\:/AndroidStudioProjects/Quizzify/app/src/main/res/layout/fragment_home.xml" value="0.25" />
+        <entry key="..\:/AndroidStudioProjects/Quizzify/app/src/main/res/layout/fragment_invite_code_dialog.xml" value="0.25" />
+        <entry key="..\:/AndroidStudioProjects/Quizzify/app/src/main/res/layout/fragment_login.xml" value="0.33" />
+        <entry key="..\:/AndroidStudioProjects/Quizzify/app/src/main/res/layout/fragment_profile.xml" value="0.25" />
+        <entry key="..\:/AndroidStudioProjects/Quizzify/app/src/main/res/layout/fragment_question_c_ount.xml" value="0.28858486532706284" />
+        <entry key="..\:/AndroidStudioProjects/Quizzify/app/src/main/res/layout/fragment_question_count.xml" value="0.33" />
+        <entry key="..\:/AndroidStudioProjects/Quizzify/app/src/main/res/layout/fragment_quiz_details.xml" value="0.33" />
+        <entry key="..\:/AndroidStudioProjects/Quizzify/app/src/main/res/layout/fragment_ranking.xml" value="0.28858486532706284" />
+        <entry key="..\:/AndroidStudioProjects/Quizzify/app/src/main/res/layout/fragment_register.xml" value="0.25" />
+        <entry key="..\:/AndroidStudioProjects/Quizzify/app/src/main/res/layout/fragment_waiting_for_finish.xml" value="0.28858486532706284" />
+        <entry key="..\:/AndroidStudioProjects/Quizzify/app/src/main/res/layout/fragment_waiting_for_players.xml" value="0.25" />
+        <entry key="..\:/AndroidStudioProjects/Quizzify/app/src/main/res/layout/fragment_winning.xml" value="0.28858486532706284" />
+        <entry key="..\:/AndroidStudioProjects/Quizzify/app/src/main/res/layout/on_boarding_layout.xml" value="0.28858486532706284" />
+        <entry key="..\:/AndroidStudioProjects/Quizzify/app/src/main/res/layout/option_item.xml" value="0.28858486532706284" />
+        <entry key="..\:/AndroidStudioProjects/Quizzify/app/src/main/res/layout/option_item_layout.xml" value="0.3515625" />
+        <entry key="..\:/AndroidStudioProjects/Quizzify/app/src/main/res/layout/player_list_item.xml" value="0.25" />
+        <entry key="..\:/AndroidStudioProjects/Quizzify/app/src/main/res/layout/progress_bar.xml" value="0.5" />
+        <entry key="..\:/AndroidStudioProjects/Quizzify/app/src/main/res/layout/question_item.xml" value="0.28858486532706284" />
+        <entry key="..\:/AndroidStudioProjects/Quizzify/app/src/main/res/layout/quiz_item.xml" value="0.33" />
+        <entry key="..\:/AndroidStudioProjects/Quizzify/app/src/main/res/menu/bottom_nav_menu.xml" value="0.28858486532706284" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_16" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

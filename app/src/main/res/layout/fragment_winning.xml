@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/colorPrimaryVariant"
+    tools:context=".ui.screens.gameScreens.winning.WinningFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toTopOf="@+id/rankingButton"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/profilePic"
+                android:layout_width="160dp"
+                android:layout_height="160dp"
+                app:civ_border_color="?attr/colorOnPrimary"
+                app:civ_border_width="4dp"
+                tools:src="@tools:sample/avatars" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/gilroy_bld"
+                android:text="Congrats 🎉"
+                android:textAllCaps="true"
+                android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Headline4"
+                android:textColor="?attr/colorOnPrimary" />
+
+            <TextView
+                android:id="@+id/rankTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Headline6"
+                android:textColor="?attr/colorOnPrimary"
+                tools:text="You ranked 1st" />
+
+
+        </LinearLayout>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/homeButton"
+            android:layout_width="72dp"
+            android:layout_height="72dp"
+            android:layout_marginBottom="120dp"
+            app:cardCornerRadius="12dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/rankingButton"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/home_option_bg_color"
+                android:padding="16dp"
+                android:src="@drawable/ic_home_icon" />
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/rankingButton"
+            android:layout_width="72dp"
+            android:layout_height="72dp"
+            app:cardCornerRadius="12dp"
+            app:layout_constraintBottom_toBottomOf="@+id/homeButton"
+            app:layout_constraintEnd_toStartOf="@+id/upvoteButton"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/homeButton"
+            app:layout_constraintTop_toTopOf="@+id/homeButton">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/ranking_option_bg_color"
+                android:padding="16dp"
+                android:src="@drawable/ic_trophy"
+                app:tint="@color/white" />
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/upvoteButton"
+            android:layout_width="72dp"
+            android:layout_height="72dp"
+            app:cardCornerRadius="12dp"
+            app:layout_constraintBottom_toBottomOf="@+id/rankingButton"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/rankingButton"
+            app:layout_constraintTop_toTopOf="@+id/rankingButton">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/upvote_option_bg_color"
+                android:padding="16dp"
+                android:src="@drawable/ic_upvote" />
+
+        </com.google.android.material.card.MaterialCardView>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/gilroy_bld"
+            android:text="Home"
+            android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Body1"
+            android:textColor="?attr/colorOnPrimary"
+            app:layout_constraintEnd_toEndOf="@+id/homeButton"
+            app:layout_constraintStart_toStartOf="@+id/homeButton"
+            app:layout_constraintTop_toBottomOf="@+id/homeButton" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/gilroy_bld"
+            android:text="Ranking"
+            android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Body1"
+            android:textColor="?attr/colorOnPrimary"
+            app:layout_constraintEnd_toEndOf="@+id/rankingButton"
+            app:layout_constraintStart_toStartOf="@+id/rankingButton"
+            app:layout_constraintTop_toBottomOf="@+id/rankingButton" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/gilroy_bld"
+            android:text="Upvote"
+            android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Body1"
+            android:textColor="?attr/colorOnPrimary"
+            app:layout_constraintEnd_toEndOf="@+id/upvoteButton"
+            app:layout_constraintStart_toStartOf="@+id/upvoteButton"
+            app:layout_constraintTop_toBottomOf="@+id/upvoteButton" />
+
+
+        <nl.dionsegijn.konfetti.xml.KonfettiView
+            android:id="@+id/konfettiView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:elevation="24dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/progressContainer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        app:cardCornerRadius="@dimen/loadingAnimCorner"
+        app:cardElevation="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:visibility="visible">
+
+        <include
+            android:id="@+id/progressBar"
+            layout="@layout/progress_bar" />
+
+    </com.google.android.material.card.MaterialCardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

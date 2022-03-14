@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginVertical="4dp"
+    android:gravity="center_vertical"
+    android:paddingVertical="4dp">
+
+    <TextView
+        android:id="@+id/optionTv"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Body2"
+        tools:text="Option 1: Minions" />
+
+    <ImageView
+        android:id="@+id/tickIcon"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginEnd="8dp"
+        android:src="@drawable/ic_tick"
+        app:tint="@android:color/holo_green_light" />
+
+
+</LinearLayout>

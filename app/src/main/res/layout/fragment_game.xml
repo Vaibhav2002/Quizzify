@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.screens.gameScreens.game.GameFragment">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <TextView
+            android:id="@+id/titleTv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="24dp"
+            android:layout_marginTop="16dp"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:maxLines="1"
+            android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Headline5"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Game" />
+
+        <TextView
+            android:id="@+id/questionCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Headline6"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/titleTv"
+            tools:text="Q 1 / 7" />
+
+
+        <TextView
+            android:id="@+id/rankTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Headline6"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/titleTv"
+            tools:text="Rank 1" />
+
+        <com.mackhartley.roundedprogressbar.RoundedProgressBar
+            android:id="@+id/roundedProgressBar"
+            android:layout_width="0dp"
+            android:layout_height="16dp"
+            android:layout_marginTop="24dp"
+            app:layout_constraintEnd_toEndOf="@+id/rankTv"
+            app:layout_constraintStart_toStartOf="@+id/questionCount"
+            app:layout_constraintTop_toBottomOf="@+id/questionCount"
+            app:rpbAnimationLength="@integer/material_motion_duration_medium_1"
+            app:rpbBackgroundColor="@color/lt_blue_50"
+            app:rpbCornerRadius="16dp"
+            app:rpbProgress="60"
+            app:rpbProgressColor="@color/lt_blue"
+            app:rpbShowProgressText="false" />
+
+
+        <TextView
+            android:id="@+id/timeLeftTV"
+            style="@style/grayText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Headline6"
+            app:layout_constraintEnd_toEndOf="@+id/roundedProgressBar"
+            app:layout_constraintStart_toStartOf="@+id/roundedProgressBar"
+            app:layout_constraintTop_toBottomOf="@+id/roundedProgressBar"
+            tools:text="30 sec left" />
+
+
+        <TextView
+            android:id="@+id/questionTv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:ellipsize="marquee"
+            android:maxLines="6"
+            android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Headline6"
+            app:layout_constraintEnd_toEndOf="@+id/roundedProgressBar"
+            app:layout_constraintStart_toStartOf="@+id/roundedProgressBar"
+            app:layout_constraintTop_toBottomOf="@+id/timeLeftTV"
+            tools:text="This trope refers to minor characters that are killed off to show how a monster works." />
+
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/submitBtn"
+            style="@style/PrimaryButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:text="Submit"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/questionTv"
+            app:layout_constraintStart_toStartOf="@+id/questionTv" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/optionRv"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginVertical="24dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toTopOf="@id/submitBtn"
+            app:layout_constraintTop_toBottomOf="@id/questionTv"
+            tools:itemCount="4"
+            tools:listitem="@layout/option_item" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/progressContainer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        app:cardCornerRadius="@dimen/loadingAnimCorner"
+        app:cardElevation="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:visibility="visible">
+
+        <include
+            android:id="@+id/progressBar"
+            layout="@layout/progress_bar" />
+
+    </com.google.android.material.card.MaterialCardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

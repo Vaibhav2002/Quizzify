@@ -1,0 +1,115 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+    id 'com.google.gms.google-services'
+    id 'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
+    id 'androidx.navigation.safeargs'
+    id "com.apollographql.apollo"
+}
+
+android {
+    compileSdk 31
+
+    defaultConfig {
+        applicationId "dev.vaibhav.quizzify"
+        minSdk 26
+        targetSdk 31
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    buildFeatures {
+        viewBinding true
+        dataBinding true
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+
+}
+
+dependencies {
+
+    implementation 'androidx.core:core-ktx:1.7.0'
+    implementation 'androidx.appcompat:appcompat:1.4.1'
+    implementation 'com.google.android.material:material:1.5.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.3'
+    implementation 'com.google.firebase:firebase-auth-ktx:21.0.1'
+    implementation 'com.google.android.gms:play-services-auth:20.1.0'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+    implementation 'androidx.core:core-splashscreen:1.0.0-beta01'
+
+    // lifecycle
+    implementation "androidx.lifecycle:lifecycle-runtime-ktx:$lifecycle_version"
+
+    //firebase
+    implementation platform('com.google.firebase:firebase-bom:29.0.3')
+    implementation 'com.google.firebase:firebase-firestore-ktx'
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-play-services:1.6.0"
+
+    //hilt
+    implementation "com.google.dagger:hilt-android:$hilt_version"
+    kapt "com.google.dagger:hilt-compiler:$hilt_version"
+
+    //room
+    implementation "androidx.room:room-ktx:$room_version"
+    implementation "androidx.room:room-runtime:$room_version"
+    kapt "androidx.room:room-compiler:$room_version"
+
+    //navigation
+    implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
+    implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
+
+    //dataStore
+    implementation "androidx.datastore:datastore-preferences:1.0.0"
+    implementation 'com.google.code.gson:gson:2.8.8'
+
+    //third party libraries
+    implementation 'com.jakewharton.timber:timber:5.0.1'
+    implementation 'nl.joery.animatedbottombar:library:1.1.0'
+    implementation 'com.github.MackHartley:RoundedProgressBar:2.1.1'
+    implementation "com.airbnb.android:lottie:$lottieVersion"
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
+    implementation 'nl.dionsegijn:konfetti-xml:2.0.1'
+    implementation 'com.tbuonomo:dotsindicator:4.2'
+    implementation("io.coil-kt:coil:2.0.0-rc01")
+
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+    implementation 'com.squareup.okhttp3:logging-interceptor:4.4.1'
+
+    //apollo graphQL
+    implementation("com.apollographql.apollo:apollo-runtime:$apolloVersion")
+    // Coroutines extensions for easier asynchronicity handling
+    implementation("com.apollographql.apollo:apollo-coroutines-support:$apolloVersion")
+
+
+    implementation 'com.github.bumptech.glide:glide:4.13.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.13.0'
+
+    //testing
+    testImplementation "com.google.truth:truth:1.1.3"
+    testImplementation 'org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.0'
+
+}
+
+
+apollo {
+    generateKotlinModels.set(true)
+}

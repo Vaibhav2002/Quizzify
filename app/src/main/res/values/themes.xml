@@ -1,0 +1,115 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.Quizzify" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/lt_darkpblue</item>
+        <item name="colorPrimaryVariant">@color/lt_blue</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/lt_deepblue</item>
+        <item name="colorSecondaryVariant">@color/lt_blue</item>
+        <item name="colorOnSecondary">@color/white</item>
+
+        <item name="backgroundColor">@color/background</item>
+        <item name="colorOnBackground">@color/lt_deepblue</item>
+
+        <item name="colorSurface">@color/surface</item>
+        <item name="colorOnSurface">@color/lt_deepblue</item>
+
+        <item name="bottomSheetDialogTheme">@style/AppBottomSheetDialogTheme</item>
+
+        <item name="android:colorBackgroundFloating">@color/surface</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <!-- Customize your theme here. -->
+    </style>
+
+    <style name="Theme.Quizzify.Starting" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">@color/surface</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/ic_kogo</item>
+        <item name="postSplashScreenTheme">@style/Theme.Quizzify.FullScreen</item>
+    </style>
+
+    <style name="Theme.Quizzify.FullScreen">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:windowLightStatusBar">true</item>
+    </style>
+
+
+    <style name="ProfileButtons">
+        <item name="android:drawablePadding">16dp</item>
+        <item name="android:paddingVertical">8dp</item>
+        <item name="android:paddingHorizontal">16dp</item>
+        <item name="android:gravity">center_vertical|start</item>
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:textColor">?attr/colorOnSurface</item>
+        <item name="android:textAppearance">@style/TextAppearance.MdcTypographyStyles.Body1</item>
+    </style>
+
+
+    <style name="AppBottomSheetDialogTheme" parent="Theme.Design.Light.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/AppModalStyle</item>
+    </style>
+
+    <style name="AppModalStyle" parent="Widget.Design.BottomSheet.Modal">
+        <item name="android:background">@drawable/bottom_sheet_rounded_bg</item>
+    </style>
+
+    <style name="Theme.MusicX.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="Theme.MusicX.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="grayText">
+        <item name="android:textColor">@color/gray5</item>
+    </style>
+
+    <style name="SquarishExtendedFab" parent="Widget.MaterialComponents.ExtendedFloatingActionButton">
+        <item name="shapeAppearanceOverlay">@style/FabShape</item>
+        <item name="android:paddingStart">32dp</item>
+        <item name="backgroundTint">@color/lt_blue</item>
+        <item name="android:paddingEnd">32dp</item>
+        <item name="android:paddingVertical">16dp</item>
+    </style>
+
+    <style name="FabShape">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">16dp</item>
+    </style>
+
+    <style name="TopRoundedCard" parent="Widget.MaterialComponents.CardView">
+        <item name="shapeAppearanceOverlay">@style/TopRoundedCardShape</item>
+    </style>
+
+    <style name="TopRoundedCardShape">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSizeTopLeft">48dp</item>
+        <item name="cornerSizeTopRight">48dp</item>
+    </style>
+
+    <style name="secondaryText">
+        <item name="android:textColor">?attr/colorOnSurface</item>
+        <item name="android:alpha">0.7</item>
+    </style>
+
+    <style name="PrimaryButton" parent="Widget.MaterialComponents.Button">
+        <item name="cornerRadius">12dp</item>
+        <item name="android:paddingVertical">16dp</item>
+        <item name="android:textAppearance">@style/TextAppearance.MdcTypographyStyles.Button</item>
+        <item name="android:textColor">?attr/colorOnPrimary</item>
+    </style>
+
+    <style name="GoogleLoginButton" parent="OutlinedButton">
+        <item name="icon">@drawable/google</item>
+        <item name="iconTint">@null</item>
+        <item name="iconGravity">textStart</item>
+        <item name="iconPadding">32dp</item>
+    </style>
+
+    <style name="OutlinedButton" parent="Widget.MaterialComponents.Button.OutlinedButton">
+        <item name="cornerRadius">12dp</item>
+        <item name="android:textAppearance">@style/TextAppearance.MdcTypographyStyles.Button</item>
+        <item name="strokeColor">?attr/colorPrimary</item>
+        <item name="android:paddingVertical">16dp</item>
+    </style>
+</resources>

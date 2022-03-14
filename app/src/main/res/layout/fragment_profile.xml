@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/backgroundColor"
+    tools:context=".ui.screens.main.profile.ProfileFragment">
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipeRefresh"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/uiContainer"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/profile_banner"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/profilePic"
+                android:layout_width="120dp"
+                android:layout_height="0dp"
+                android:layout_marginTop="-60dp"
+                app:civ_border_color="?attr/backgroundColor"
+                app:civ_border_width="4dp"
+                app:layout_constraintDimensionRatio="1:1"
+                app:layout_constraintEnd_toEndOf="@+id/imageView2"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView2"
+                tools:src="@tools:sample/avatars" />
+
+
+            <TextView
+                android:id="@+id/usernameTv"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="24dp"
+                android:layout_marginTop="16dp"
+                android:gravity="center"
+                android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Headline5"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/profilePic"
+                tools:text="Sample User 1" />
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="32dp"
+                app:cardBackgroundColor="?attr/colorPrimaryVariant"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/usernameTv">
+
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingVertical="8dp">
+
+
+                    <TextView
+                        android:id="@+id/playedCount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="24dp"
+                        android:includeFontPadding="false"
+                        android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Headline4"
+                        android:textColor="?attr/colorOnPrimary"
+                        app:layout_constraintEnd_toStartOf="@+id/wonCount"
+                        app:layout_constraintHorizontal_chainStyle="spread"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:text="10" />
+
+                    <TextView
+                        android:id="@+id/wonCount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:includeFontPadding="false"
+                        android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Headline4"
+                        android:textColor="?attr/colorOnPrimary"
+                        app:layout_constraintEnd_toStartOf="@+id/expCount"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintStart_toEndOf="@+id/playedCount"
+                        app:layout_constraintTop_toTopOf="@+id/playedCount"
+                        tools:text="10" />
+
+                    <TextView
+                        android:id="@+id/expCount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:includeFontPadding="false"
+                        android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Headline4"
+                        android:textColor="?attr/colorOnPrimary"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintStart_toEndOf="@+id/wonCount"
+                        app:layout_constraintTop_toTopOf="@+id/wonCount"
+                        tools:text="10" />
+
+
+                    <TextView
+                        android:id="@+id/textView6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginBottom="24dp"
+                        android:text="Played"
+                        android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Caption"
+                        android:textColor="?attr/colorOnPrimary"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="@+id/playedCount"
+                        app:layout_constraintStart_toStartOf="@+id/playedCount"
+                        app:layout_constraintTop_toBottomOf="@+id/playedCount" />
+
+
+                    <TextView
+                        android:id="@+id/textView7"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Won"
+                        android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Caption"
+                        android:textColor="?attr/colorOnPrimary"
+                        app:layout_constraintBottom_toBottomOf="@+id/textView6"
+                        app:layout_constraintEnd_toEndOf="@+id/wonCount"
+                        app:layout_constraintStart_toStartOf="@+id/wonCount"
+                        app:layout_constraintTop_toTopOf="@+id/textView6" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Exp"
+                        android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Caption"
+                        android:textColor="?attr/colorOnPrimary"
+                        app:layout_constraintBottom_toBottomOf="@+id/textView7"
+                        app:layout_constraintEnd_toEndOf="@+id/expCount"
+                        app:layout_constraintStart_toStartOf="@+id/expCount"
+                        app:layout_constraintTop_toTopOf="@+id/textView7" />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/aboutButton"
+                style="@style/ProfileButtons"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/ic_about"
+                android:text="About"
+                app:layout_constraintBottom_toTopOf="@+id/logoutButton"
+                app:layout_constraintEnd_toEndOf="@+id/logoutButton"
+                app:layout_constraintStart_toStartOf="@+id/logoutButton" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/logoutButton"
+                style="@style/ProfileButtons"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:drawableStart="@drawable/ic_logout"
+                android:text="Logout"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/progressContainer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        app:cardCornerRadius="@dimen/loadingAnimCorner"
+        app:cardElevation="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:visibility="visible">
+
+        <include
+            android:id="@+id/progressBar"
+            layout="@layout/progress_bar" />
+
+    </com.google.android.material.card.MaterialCardView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

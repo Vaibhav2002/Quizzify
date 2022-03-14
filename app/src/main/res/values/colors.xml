@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="white">#ffffff</color>
+    <color name="gray2">#f1f1f1</color>
+    <color name="gray3">#AAAAAA</color>
+    <color name="gray4">#9a9a9a</color>
+    <color name="gray5">#6A6A6A</color>
+    <color name="gray6">#535353</color>
+    <color name="black">#000000</color>
+    <color name="gray">#F3F3F3</color>
+
+
+    <!--    lightTheme-->
+
+    <color name="lt_deepblue">#00133d</color>
+    <color name="lt_darkpblue">#003cbf</color>
+    <color name="lt_blue">#008cef</color>
+    <color name="lt_yellow">#ffe0b7</color>
+    <color name="background">#F8F8FA</color>
+    <color name="surface">#ffffff</color>
+
+    <color name="lt_blue_50">#A6C6DC</color>
+
+    <color name="optionTextColor">@color/lt_deepblue</color>
+    <color name="optionSelectedTextColor">@color/white</color>
+    <color name="optionSelectedBgColor">@color/lt_darkpblue</color>
+    <color name="optionUnselectedBgColor">@color/surface</color>
+
+
+    <color name="home_option_bg_color">#3FC1C9</color>
+    <color name="ranking_option_bg_color">#FC5185</color>
+    <color name="upvote_option_bg_color">#FCB247</color>
+
+    <color name="green">#00ff00</color>
+    <color name="red">#ff0000</color>
+
+</resources>

@@ -1,0 +1,36 @@
+<resources>
+    <string name="app_name">Quizzify</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="shared_quiz_image">shared_quiz_image_%s</string>
+
+    <string name="shared_quiz_title">shared_quiz_title_%s</string>
+
+    <string name="shared_quiz_questions">shared_quiz_question_%s</string>
+
+    <string name="leave_game">Leave Game</string>
+    <string name="leave_game_confirm">Are your sure you want to leave the game.</string>
+    <string name="leave">Leave</string>
+
+    <string name="close_game">End Game</string>
+    <string name="close_game_confirm">Are you sure you want to end the game.</string>
+    <string name="end">End</string>
+    <string name="waiting">Waiting for other players to finish their game. Please be patient.</string>
+    <string name="app_version">1.0.0</string>
+    <string name="skip">Skip</string>
+
+
+    <string-array name="spinner_item">
+        <item>5</item>
+        <item>10</item>
+        <item>15</item>
+        <item>20</item>
+        <item>25</item>
+        <item>30</item>
+    </string-array>
+
+    <string name="no_internet_title">No Internet</string>
+    <string name="no_internet_description">No Internet</string>
+
+</resources>

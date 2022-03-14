@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/auth_nav_graph"
+    app:startDestination="@id/gettingStartedFragment">
+
+    <fragment
+        android:id="@+id/gettingStartedFragment"
+        android:name="dev.vaibhav.quizzify.ui.screens.auth.gettingStarted.GettingStartedFragment"
+        tools:layout="@layout/fragment_getting_started"
+        android:label="GettingStartedFragment">
+        <action
+            android:id="@+id/action_gettingStartedFragment_to_registerFragment"
+            app:destination="@id/registerFragment"
+            app:launchSingleTop="true" />
+        <action
+            android:id="@+id/action_gettingStartedFragment_to_loginFragment"
+            app:destination="@id/loginFragment"
+            app:launchSingleTop="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/registerFragment"
+        android:name="dev.vaibhav.quizzify.ui.screens.auth.register.RegisterFragment"
+        tools:layout="@layout/fragment_register"
+        android:label="RegisterFragment">
+        <action
+            android:id="@+id/action_registerFragment_to_loginFragment"
+            app:destination="@id/loginFragment"
+            app:launchSingleTop="true"
+            app:popUpTo="@id/registerFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_registerFragment_to_avatarSelectFragment"
+            app:destination="@id/avatarSelectFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="dev.vaibhav.quizzify.ui.screens.auth.login.LoginFragment"
+        tools:layout="@layout/fragment_login"
+        android:label="LoginFragment">
+        <action
+            android:id="@+id/action_loginFragment_to_registerFragment"
+            app:destination="@id/registerFragment"
+            app:launchSingleTop="true"
+            app:popUpTo="@id/loginFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/avatarSelectFragment"
+        android:name="dev.vaibhav.quizzify.ui.screens.auth.avatarSelect.AvatarSelectFragment"
+        android:label="fragment_avatar_select"
+        tools:layout="@layout/fragment_avatar_select" />
+</navigation>

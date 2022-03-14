@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="quiz"
+            type="dev.vaibhav.quizzify.data.models.remote.QuizDto" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/materialCardView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginVertical="4dp"
+        android:shadowColor="@color/gray2"
+        app:cardCornerRadius="12dp"
+        app:cardElevation="0dp"
+        app:cardBackgroundColor="?attr/colorSurface"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="16dp">
+
+            <ImageView
+                android:id="@+id/imageView"
+                setImageUrl="@{quiz.category.image}"
+                android:layout_width="0dp"
+                android:layout_height="64dp"
+                android:transitionName="@{@string/shared_quiz_image(String.valueOf(quiz.category.image))}"
+                app:layout_constraintDimensionRatio="w, 1:1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:src="@drawable/book" />
+
+            <LinearLayout
+                android:id="@+id/linearLayout3"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="8dp"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toTopOf="@+id/madeByTv"
+                app:layout_constraintEnd_toStartOf="@+id/play_icon"
+                app:layout_constraintStart_toEndOf="@+id/imageView"
+                app:layout_constraintTop_toTopOf="@+id/imageView">
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:singleLine="true"
+                    android:text="@{quiz.name}"
+                    android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Headline6"
+                    android:textColor="?attr/colorOnSurface"
+                    android:transitionName="@string/shared_quiz_title"
+                    tools:text="Hello Quiz" />
+
+                <TextView
+                    style="@style/secondaryText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:singleLine="true"
+                    android:text="@{quiz.questionCount + ` Questions`}"
+                    android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Body2"
+                    tools:text="10 Questions" />
+
+            </LinearLayout>
+
+
+            <TextView
+                android:id="@+id/madeByTv"
+                style="@style/secondaryText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:text="@{`Made by: ` + quiz.createdBy}"
+                android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Caption"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                tools:text="Made by: Vaibhav02" />
+
+
+            <ImageView
+                android:id="@+id/play_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_play"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:tint="?attr/colorPrimary" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </com.google.android.material.card.MaterialCardView>
+</layout>
