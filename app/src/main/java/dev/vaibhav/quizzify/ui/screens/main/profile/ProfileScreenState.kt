@@ -6,6 +6,7 @@ data class ProfileScreenState(
     val quizzedPlayed: Int = 0,
     val quizzesWon: Int = 0,
     val exp: Int = 0,
+    val quizCount: Int = 0,
     val isLoading: Boolean = false,
     val isRefreshing: Boolean = false
 )

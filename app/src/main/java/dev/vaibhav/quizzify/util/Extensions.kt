@@ -16,6 +16,7 @@ import android.view.View
 import android.view.View.GONE
 import android.view.View.VISIBLE
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.Toast
 import androidx.annotation.ColorRes
 import androidx.core.view.marginBottom
@@ -27,8 +28,10 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import coil.load
 import com.apollographql.apollo.api.Response
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import dev.vaibhav.quizzify.R
 import dev.vaibhav.quizzify.data.models.remote.QuizDto
 import dev.vaibhav.quizzify.data.models.remote.game.Game
 import dev.vaibhav.quizzify.data.models.remote.game.GameState.STARTED
@@ -101,6 +104,15 @@ fun View.setMarginEnd(margin: Int) {
     val params = layoutParams as ViewGroup.MarginLayoutParams
     params.setMargins(marginStart, marginTop, margin, marginBottom)
     layoutParams = params
+}
+
+fun ImageView.setProfilePicWithListener(url: String?, onSuccess: () -> Unit) {
+    load(url) {
+        crossfade(true)
+        placeholder(R.drawable.blank_avatar)
+        error(R.drawable.blank_avatar)
+        listener { _, _ -> onSuccess() }
+    }
 }
 
 fun View.setMarginLeft(margin: Int) {

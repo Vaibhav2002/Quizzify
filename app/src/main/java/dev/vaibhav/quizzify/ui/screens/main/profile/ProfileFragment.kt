@@ -43,12 +43,13 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
     private fun collectUiState() = viewModel.uiState.launchAndCollectLatest(viewLifecycleOwner) {
         binding.apply {
             usernameTv.text = it.userName
-            profilePic.setImageUrl(it.profilePic)
+            profilePic.setProfilePic(it.profilePic)
             wonCount.text = it.quizzesWon.toString()
             playedCount.text = it.quizzedPlayed.toString()
             expCount.text = it.exp.toString()
             swipeRefresh.isRefreshing = it.isRefreshing
             progressContainer.isVisible = it.isLoading
+            quizCountTv.text = it.quizCount.toString()
         }
     }
 

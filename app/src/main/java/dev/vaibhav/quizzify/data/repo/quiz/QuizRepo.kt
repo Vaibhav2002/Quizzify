@@ -23,4 +23,8 @@ interface QuizRepo {
     suspend fun saveNewQuiz(quizDto: QuizDto): Flow<Resource<Unit>>
 
     suspend fun upvoteQuiz(quiz: QuizDto): Flow<Resource<Unit>>
+
+    suspend fun getQuizzesCreatedByUser(userId: String): Flow<List<QuizDto>>
+
+    suspend fun getCountOfQuizzesCreatedByUser(userId: String): Flow<Int>
 }

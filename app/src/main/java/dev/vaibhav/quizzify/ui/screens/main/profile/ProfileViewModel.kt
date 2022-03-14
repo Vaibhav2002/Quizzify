@@ -6,6 +6,7 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import dev.vaibhav.quizzify.data.models.remote.game.Game
 import dev.vaibhav.quizzify.data.repo.auth.AuthRepository
 import dev.vaibhav.quizzify.data.repo.game.GameRepo
+import dev.vaibhav.quizzify.data.repo.quiz.QuizRepo
 import dev.vaibhav.quizzify.util.ErrorType
 import dev.vaibhav.quizzify.util.Resource
 import kotlinx.coroutines.flow.*
@@ -15,7 +16,8 @@ import javax.inject.Inject
 @HiltViewModel
 class ProfileViewModel @Inject constructor(
     private val gameRepo: GameRepo,
-    private val authRepository: AuthRepository
+    private val authRepository: AuthRepository,
+    private val quizRepo: QuizRepo
 ) : ViewModel() {
 
     private val _uiState = MutableStateFlow(ProfileScreenState())
@@ -28,8 +30,15 @@ class ProfileViewModel @Inject constructor(
 
     init {
         setUserData()
+        collectQuizCount()
         viewModelScope.launch {
             getAllGamesOfUser()
+        }
+    }
+
+    private fun collectQuizCount() = viewModelScope.launch {
+        quizRepo.getCountOfQuizzesCreatedByUser(userId).collectLatest { count ->
+            _uiState.update { it.copy(quizCount = count) }
         }
     }
 

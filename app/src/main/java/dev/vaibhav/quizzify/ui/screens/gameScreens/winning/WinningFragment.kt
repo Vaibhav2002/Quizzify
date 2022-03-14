@@ -49,10 +49,11 @@ class WinningFragment : Fragment(R.layout.fragment_winning) {
 
     private fun collectUiState() = viewModel.uiState.launchAndCollectLatest(viewLifecycleOwner) {
         binding.apply {
-            profilePic.setImageUrl(it.profilePic)
+            profilePic.setProfilePic(it.profilePic)
             rankTv.text = it.rankString
             progressContainer.isVisible = it.isLoading
-            upvoteButton.isEnabled = it.isUpvoteButtonEnabled
+            upvoteButton.showOrGone(it.isUpvoteButtonEnabled)
+            upvoteTv.showOrGone(it.isUpvoteButtonEnabled)
         }
     }
 

@@ -52,7 +52,7 @@ class WaitingForFinishFragment : Fragment(R.layout.fragment_waiting_for_finish) 
     }
 
     private fun collectUiState() = viewModel.uiState.launchAndCollectLatest(viewLifecycleOwner) {
-        binding.profilePic.setImageUrl(it.userImage)
+        binding.profilePic.setProfilePic(it.userImage)
         binding.progressContainer.isVisible = it.isLoading
     }
 }

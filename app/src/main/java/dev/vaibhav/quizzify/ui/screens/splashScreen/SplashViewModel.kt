@@ -11,7 +11,7 @@ import kotlinx.coroutines.flow.SharedFlow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
-private const val SPLASH_TIME = 2000L
+private const val SPLASH_TIME = 1500L
 
 @HiltViewModel
 class SplashViewModel @Inject constructor(

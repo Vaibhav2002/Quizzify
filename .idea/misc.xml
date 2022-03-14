@@ -46,7 +46,7 @@
         <entry key="..\:/AndroidStudioProjects/Quizzify/app/src/main/res/layout/fragment_home.xml" value="0.25" />
         <entry key="..\:/AndroidStudioProjects/Quizzify/app/src/main/res/layout/fragment_invite_code_dialog.xml" value="0.25" />
         <entry key="..\:/AndroidStudioProjects/Quizzify/app/src/main/res/layout/fragment_login.xml" value="0.33" />
-        <entry key="..\:/AndroidStudioProjects/Quizzify/app/src/main/res/layout/fragment_profile.xml" value="0.25" />
+        <entry key="..\:/AndroidStudioProjects/Quizzify/app/src/main/res/layout/fragment_profile.xml" value="0.1" />
         <entry key="..\:/AndroidStudioProjects/Quizzify/app/src/main/res/layout/fragment_question_c_ount.xml" value="0.28858486532706284" />
         <entry key="..\:/AndroidStudioProjects/Quizzify/app/src/main/res/layout/fragment_question_count.xml" value="0.33" />
         <entry key="..\:/AndroidStudioProjects/Quizzify/app/src/main/res/layout/fragment_quiz_details.xml" value="0.33" />

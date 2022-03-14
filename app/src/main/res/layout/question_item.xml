@@ -30,6 +30,7 @@
             android:layout_height="wrap_content"
             android:ellipsize="end"
             android:maxLines="3"
+            android:fontFamily="@font/opensans_medium"
             android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Body1"
             app:layout_constraintEnd_toStartOf="@+id/closeBtn"
             app:layout_constraintStart_toStartOf="parent"

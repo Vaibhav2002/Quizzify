@@ -81,4 +81,14 @@ class QuizRepoImpl @Inject constructor(
     }.map {
         it.mapMessages("Successfully up voted quiz", "Failed to upvote quiz")
     }
+
+    override suspend fun getQuizzesCreatedByUser(userId: String) =
+        getAllQuizzes("").map { quizzes ->
+            quizzes.filter { it.createdByUserId == userId }
+        }
+
+    override suspend fun getCountOfQuizzesCreatedByUser(userId: String) =
+        getQuizzesCreatedByUser(userId).map {
+            it.count()
+        }
 }
