@@ -30,6 +30,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+//        setUpForContainerTransform()
         initViews()
         initListeners()
         collectUiState()
@@ -41,6 +42,8 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
             quizAdapter.submitList(it.quizzes)
             categoryAdapter.submitList(it.categories)
             progressContainer.isVisible = it.isLoading
+            swipeRefresh.isRefreshing = it.isRefreshing
+            popularQuizRv.scrollToPosition(0)
         }
     }
 
@@ -78,12 +81,19 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 
     private fun initListeners() = binding.apply {
         joinGameBtn.setOnClickListener { viewModel.onJoinGameButtonPressed() }
+        swipeRefresh.setOnRefreshListener { viewModel.onRefreshed() }
     }
 
     private fun initViews() = binding.apply {
         header.setMarginTop(TITLE_TOP_MARGIN)
         categoryAdapter = CategoryAdapter(viewModel::onCategoryPressed)
-        quizAdapter = QuizAdapter(viewModel::onQuizItemPressed)
+        quizAdapter = QuizAdapter { quizItem, quiz ->
+            viewModel.onQuizItemPressed(quiz)
+//            val extras = FragmentNavigatorExtras(quizItem.root to quiz.id)
+//            val action =
+//                HomeFragmentDirections.actionHomeFragmentToQuizDetailsFragment(quiz)
+//            findNavController().navigate(action, extras)
+        }
         categoriesRv.apply {
             setHasFixedSize(true)
             adapter = categoryAdapter

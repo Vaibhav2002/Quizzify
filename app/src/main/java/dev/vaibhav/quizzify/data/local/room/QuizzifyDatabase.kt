@@ -6,7 +6,7 @@ import androidx.room.TypeConverters
 import dev.vaibhav.quizzify.data.models.remote.CategoryDto
 import dev.vaibhav.quizzify.data.models.remote.QuizDto
 
-@Database(entities = [QuizDto::class, CategoryDto::class], version = 1, exportSchema = false)
+@Database(entities = [QuizDto::class, CategoryDto::class], version = 2, exportSchema = false)
 @TypeConverters(QuizzifyTypeConverters::class)
 abstract class QuizzifyDatabase : RoomDatabase() {
 

@@ -9,7 +9,7 @@ import dev.vaibhav.quizzify.data.models.remote.QuizDto
 import dev.vaibhav.quizzify.databinding.QuizItemBinding
 
 class QuizAdapter(
-    private val onCategoryPressed: (QuizDto) -> Unit
+    private val onQuizPressed: (QuizItemBinding, QuizDto) -> Unit
 ) : ListAdapter<QuizDto, QuizAdapter.QuizViewHolder>(QuizDto.diff) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): QuizViewHolder {
@@ -26,12 +26,18 @@ class QuizAdapter(
         RecyclerView.ViewHolder(binding.root) {
 
         init {
-            binding.root.setOnClickListener { onCategoryPressed(currentList[absoluteAdapterPosition]) }
+            binding.root.setOnClickListener {
+                onQuizPressed(
+                    binding,
+                    currentList[absoluteAdapterPosition]
+                )
+            }
         }
 
         fun bind(quizDto: QuizDto) = binding.apply {
             madeByTv.isVisible = quizDto.createdBy.isNotEmpty()
             quiz = quizDto
+            root.transitionName = quizDto.id
         }
     }
 }

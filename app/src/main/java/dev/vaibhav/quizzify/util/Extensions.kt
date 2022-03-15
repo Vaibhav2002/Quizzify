@@ -32,6 +32,7 @@ import androidx.lifecycle.repeatOnLifecycle
 import coil.load
 import com.apollographql.apollo.api.Response
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import com.google.android.material.transition.MaterialElevationScale
 import dev.vaibhav.quizzify.R
 import dev.vaibhav.quizzify.data.models.remote.QuizDto
 import dev.vaibhav.quizzify.data.models.remote.game.Game
@@ -206,3 +207,8 @@ fun Context.vibrate() {
 fun String.decodeHtml() = Html
     .fromHtml(this, Html.FROM_HTML_MODE_COMPACT)
     .toString()
+
+fun Fragment.setUpForContainerTransform() {
+    exitTransition = MaterialElevationScale(false)
+    reenterTransition = MaterialElevationScale(true)
+}

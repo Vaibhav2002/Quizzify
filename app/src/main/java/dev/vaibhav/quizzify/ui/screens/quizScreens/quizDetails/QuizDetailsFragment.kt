@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+import com.google.android.material.transition.MaterialContainerTransform
 import dagger.hilt.android.AndroidEntryPoint
 import dev.vaibhav.quizzify.R
 import dev.vaibhav.quizzify.databinding.FragmentQuizDetailsBinding
@@ -21,11 +22,16 @@ class QuizDetailsFragment : Fragment(R.layout.fragment_quiz_details) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        setUpSharedElementTransition()
         initViews()
         initListeners()
         collectUiState()
         collectEvents()
         viewModel.setData(args.quiz)
+    }
+
+    private fun setUpSharedElementTransition() {
+        sharedElementEnterTransition = MaterialContainerTransform()
     }
 
     private fun collectEvents() = viewModel.events.launchAndCollectLatest(viewLifecycleOwner) {
@@ -65,5 +71,7 @@ class QuizDetailsFragment : Fragment(R.layout.fragment_quiz_details) {
         playSoloBtn.setOnClickListener { viewModel.onPlaySoloPressed() }
     }
 
-    private fun initViews() = Unit
+    private fun initViews() = binding.apply {
+        root.transitionName = args.quiz.id
+    }
 }

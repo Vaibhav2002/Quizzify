@@ -42,7 +42,8 @@ class HomeViewModel @Inject constructor(
     private fun collectPopularQuizzes() = viewModelScope.launch {
         quizRepo.getAllQuizzes()
             .map {
-                it.sortedByDescending { quiz -> quiz.votes }.take(5)
+                it.sortedByDescending { quiz -> quiz.votes }
+                    .take(5)
             }
             .collectLatest { quizzes ->
                 _uiState.update { it.copy(quizzes = quizzes) }
@@ -89,6 +90,33 @@ class HomeViewModel @Inject constructor(
                 }
             }
         }
+
+    fun onRefreshed() {
+        fetchAllCategories()
+        fetchAllQuizzes()
+    }
+
+    private fun fetchAllCategories() = viewModelScope.launch {
+        quizRepo.fetchAllCategories().collectLatest {
+            _uiState.emit(uiState.value.copy(isRefreshing = it is Resource.Loading))
+            when (it) {
+                is Resource.Error -> handleError(it)
+                is Resource.Loading -> Unit
+                is Resource.Success -> Unit
+            }
+        }
+    }
+
+    private fun fetchAllQuizzes() = viewModelScope.launch {
+        quizRepo.fetchAllQuizzes().collectLatest {
+            _uiState.emit(uiState.value.copy(isRefreshing = it is Resource.Loading))
+            when (it) {
+                is Resource.Error -> handleError(it)
+                is Resource.Loading -> Unit
+                is Resource.Success -> Unit
+            }
+        }
+    }
 
     private suspend fun handleError(error: Resource.Error<*>) {
         val event =

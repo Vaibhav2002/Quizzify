@@ -7,83 +7,92 @@
     android:background="?attr/backgroundColor"
     tools:context=".ui.screens.main.home.HomeFragment">
 
-
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipeRefresh"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/header"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="32dp"
-            android:text="Let's Play"
-            android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Headline4"
-            android:textColor="?attr/colorOnBackground"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/subHeader"
-            style="@style/secondaryText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:alpha="0.8"
-            android:text="Be the first"
-            android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Subtitle1"
-            app:layout_constraintStart_toStartOf="@+id/header"
-            app:layout_constraintTop_toBottomOf="@+id/header" />
-
-        <TextView
-            android:id="@+id/categoriesTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
-            android:text="Instant Quiz"
-            android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Headline5"
-            app:layout_constraintStart_toStartOf="@+id/header"
-            app:layout_constraintTop_toBottomOf="@+id/subHeader" />
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/categoriesRv"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:orientation="horizontal"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@id/categoriesTitle"
-            app:layout_constraintTop_toBottomOf="@id/categoriesTitle"
-            tools:listitem="@layout/category_item" />
-
-        <TextView
-            android:id="@+id/popularQuizTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:text="Popular Quizzes"
-            android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Headline5"
-            app:layout_constraintStart_toStartOf="@+id/header"
-            app:layout_constraintTop_toBottomOf="@+id/categoriesRv" />
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/popularQuizRv"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_marginTop="16dp"
-            android:clipToPadding="false"
-            android:layoutAnimation="@anim/layout_anim"
-            android:paddingBottom="100dp"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="@id/categoriesTitle"
-            app:layout_constraintTop_toBottomOf="@+id/popularQuizTitle"
-            tools:listitem="@layout/quiz_item" />
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/header"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="32dp"
+                android:text="Let's Play"
+                android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Headline4"
+                android:textColor="?attr/colorOnBackground"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/subHeader"
+                style="@style/secondaryText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:alpha="0.8"
+                android:text="Be the first"
+                android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Subtitle1"
+                app:layout_constraintStart_toStartOf="@+id/header"
+                app:layout_constraintTop_toBottomOf="@+id/header" />
+
+            <TextView
+                android:id="@+id/categoriesTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:text="Instant Quiz"
+                android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Headline5"
+                app:layout_constraintStart_toStartOf="@+id/header"
+                app:layout_constraintTop_toBottomOf="@+id/subHeader" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/categoriesRv"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@id/categoriesTitle"
+                app:layout_constraintTop_toBottomOf="@id/categoriesTitle"
+                tools:listitem="@layout/category_item" />
+
+            <TextView
+                android:id="@+id/popularQuizTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:text="Popular Quizzes"
+                android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Headline5"
+                app:layout_constraintStart_toStartOf="@+id/header"
+                app:layout_constraintTop_toBottomOf="@+id/categoriesRv" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/popularQuizRv"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginTop="16dp"
+                android:clipToPadding="false"
+                android:layoutAnimation="@anim/layout_anim"
+                android:paddingBottom="100dp"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="@id/categoriesTitle"
+                app:layout_constraintTop_toBottomOf="@+id/popularQuizTitle"
+                tools:listitem="@layout/quiz_item" />
 
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+
+
 
 
     <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton

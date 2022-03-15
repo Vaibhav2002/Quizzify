@@ -10,7 +10,9 @@ private fun getQuestion(
     correctAnswer: String
 ): QuestionDto {
     val correctAnswerIndex = Random().nextInt(4)
-    val allOptions = incorrectAnswers.shuffled()
+    val allOptions = incorrectAnswers
+        .map { it.decodeHtml() }
+        .shuffled()
         .toMutableList()
         .apply {
             add(correctAnswerIndex, correctAnswer)

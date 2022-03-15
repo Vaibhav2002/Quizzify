@@ -8,6 +8,8 @@ import androidx.recyclerview.widget.RecyclerView
 import dev.vaibhav.quizzify.R
 import dev.vaibhav.quizzify.data.models.local.OptionItem
 import dev.vaibhav.quizzify.databinding.OptionItemBinding
+import dev.vaibhav.quizzify.util.decodeHtml
+import dev.vaibhav.quizzify.util.dp
 import dev.vaibhav.quizzify.util.getColorFromId
 
 class OptionAdapter(
@@ -34,9 +36,10 @@ class OptionAdapter(
             optionImg.setImageResource(
                 getIconForOption(option)
             )
+            root.cardElevation = if (option.isSelected) 4.dp.toFloat() else 0.dp.toFloat()
             val color = getColorForOption(option, root.context)
             optionLayout.setBackgroundColor(color)
-            optionText.text = option.option.text
+            optionText.text = option.option.text.decodeHtml()
             optionText.setTextColor(getTextColorForOption(option, root.context))
         }
     }

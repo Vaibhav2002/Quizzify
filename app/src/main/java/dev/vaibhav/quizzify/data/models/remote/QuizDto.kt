@@ -3,6 +3,7 @@ package dev.vaibhav.quizzify.data.models.remote
 import androidx.recyclerview.widget.DiffUtil
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 import java.util.*
 
@@ -16,6 +17,8 @@ data class QuizDto(
     val category: CategoryDto = CategoryDto(),
     val questions: List<QuestionDto> = emptyList(),
     val questionCount: Int = questions.size,
+    @SerializedName("timestamp")
+    val timeStamp: Long = System.currentTimeMillis(),
     @PrimaryKey
     val id: String = UUID.randomUUID().toString(),
 ) : Serializable {

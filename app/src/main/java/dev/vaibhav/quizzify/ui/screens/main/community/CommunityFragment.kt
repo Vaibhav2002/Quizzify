@@ -66,7 +66,13 @@ class CommunityFragment : Fragment(R.layout.fragment_community) {
 
     private fun initViews() = binding.apply {
         header.setMarginTop(Constants.TITLE_TOP_MARGIN)
-        quizAdapter = QuizAdapter(viewModel::onQuizPressed)
+        quizAdapter = QuizAdapter { quizItem, quiz ->
+            viewModel.onQuizPressed(quiz)
+//            val extras = FragmentNavigatorExtras(quizItem.root to quiz.id)
+//            val action =
+//                CommunityFragmentDirections.actionCommunityFragmentToQuizDetailsFragment(quiz)
+//            findNavController().navigate(action, extras)
+        }
         quizRv.apply {
             setHasFixedSize(false)
             adapter = quizAdapter
