@@ -58,7 +58,10 @@ class QuizRepoImpl @Inject constructor(
         emit(resource)
     }.map { quizResponse ->
         Timber.d(quizResponse.data.toString())
-        quizResponse.mapTo { it.toQuiz(category) }
+        quizResponse.mapTo {
+            Timber.d(it.toQuiz(category).questions.map { it.question }.toString())
+            it.toQuiz(category)
+        }
     }
 
     override suspend fun saveNewQuiz(quizDto: QuizDto): Flow<Resource<Unit>> = flow {

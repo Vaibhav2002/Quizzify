@@ -46,7 +46,7 @@ class GameFragment : Fragment(R.layout.fragment_game) {
             timeLeftTV.text = it.timeLeftText
             roundedProgressBar.setProgressPercentage(it.progress, true)
             questionCount.text = it.questionCountText
-            questionTv.text = it.question
+            questionTv.text = it.question.decodeHtml()
             rankTv.text = it.rankText
             submitBtn.isEnabled = it.isButtonEnabled
             progressContainer.isVisible = it.isLoading

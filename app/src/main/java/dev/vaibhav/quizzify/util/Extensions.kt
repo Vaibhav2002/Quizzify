@@ -12,6 +12,7 @@ import android.os.Build
 import android.os.VibrationEffect
 import android.os.Vibrator
 import android.os.VibratorManager
+import android.text.Html
 import android.view.View
 import android.view.View.GONE
 import android.view.View.VISIBLE
@@ -201,3 +202,7 @@ fun Context.vibrate() {
         )
     )
 }
+
+fun String.decodeHtml() = Html
+    .fromHtml(this, Html.FROM_HTML_MODE_COMPACT)
+    .toString()

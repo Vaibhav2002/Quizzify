@@ -1,6 +1,7 @@
 package dev.vaibhav.quizzify.data.models.mapper
 
 import dev.vaibhav.quizzify.data.models.remote.*
+import dev.vaibhav.quizzify.util.decodeHtml
 import java.util.*
 
 private fun getQuestion(
@@ -28,6 +29,6 @@ fun QuizResponse.toQuiz(categoryDto: CategoryDto) = QuizDto(
     name = categoryDto.name,
     category = categoryDto,
     questions = results.map {
-        getQuestion(it.question, it.incorrectAnswers, it.correctAnswer)
+        getQuestion(it.question.decodeHtml(), it.incorrectAnswers, it.correctAnswer)
     },
 )
