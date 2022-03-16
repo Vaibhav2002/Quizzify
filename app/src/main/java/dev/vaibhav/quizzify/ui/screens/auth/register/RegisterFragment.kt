@@ -54,6 +54,9 @@ class RegisterFragment : Fragment(R.layout.fragment_register) {
             signInBtn.isEnabled = it.isRegisterButtonEnabled
             emailTIL.error = it.emailError
             passwordTIL.error = it.passwordError
+            emailTIET.isEnabled = it.areTextFieldsEnabled
+            passwordTIET.isEnabled = it.areTextFieldsEnabled
+            usernameTIET.isEnabled = it.areTextFieldsEnabled
         }
     }
 

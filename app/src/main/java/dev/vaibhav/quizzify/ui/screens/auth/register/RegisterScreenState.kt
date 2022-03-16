@@ -12,4 +12,7 @@ data class RegisterScreenState(
 ) {
     val isRegisterButtonEnabled: Boolean
         get() = email.isNotBlank() && password.isNotBlank() && username.isNotBlank() && !isLoading
+
+    val areTextFieldsEnabled: Boolean
+        get() = !isLoading
 }

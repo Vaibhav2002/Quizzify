@@ -51,6 +51,8 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
             signInBtn.isEnabled = it.isLoginButtonEnabled
             emailTIL.error = it.emailError
             passwordTIL.error = it.passwordError
+            emailTIET.isEnabled = it.areTextFieldsEnabled
+            passwordTIET.isEnabled = it.areTextFieldsEnabled
         }
     }
 

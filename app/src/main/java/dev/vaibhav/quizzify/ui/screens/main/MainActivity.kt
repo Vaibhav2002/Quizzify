@@ -1,8 +1,9 @@
 package dev.vaibhav.quizzify.ui.screens.main
 
+import android.animation.Animator
+import android.animation.AnimatorListenerAdapter
 import android.os.Bundle
-import android.view.View.GONE
-import android.view.View.VISIBLE
+import android.view.View
 import android.widget.PopupMenu
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -39,9 +40,31 @@ class MainActivity : AppCompatActivity() {
         )
 
         navController.addOnDestinationChangedListener { _, destination, _ ->
-            binding.bottomNav.visibility =
-                if (destination.id in fragmentsWithBottomNav) VISIBLE else GONE
+            binding.bottomNav.showOrGone(destination.id in fragmentsWithBottomNav)
         }
+    }
+
+    private fun hideBottomNav() = binding.apply {
+        bottomNav.animate().translationYBy(bottomNav.height.toFloat())
+            .alpha(0f)
+            .setDuration(300L)
+            .setListener(object : AnimatorListenerAdapter() {
+                override fun onAnimationEnd(p0: Animator?) {
+                    bottomNav.visibility = View.GONE
+                }
+            })
+    }
+
+    private fun showBottomNav() = binding.apply {
+        bottomNav.animate().translationY(0f)
+            .alpha(1f)
+            .setDuration(300L)
+            .setListener(object : AnimatorListenerAdapter() {
+                override fun onAnimationStart(animation: Animator?) {
+                    super.onAnimationStart(animation)
+                    bottomNav.visibility = View.VISIBLE
+                }
+            })
     }
 
     private fun setUpBottomNav() {

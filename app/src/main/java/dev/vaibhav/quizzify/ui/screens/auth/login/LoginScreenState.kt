@@ -10,4 +10,7 @@ data class LoginScreenState(
 ) {
     val isLoginButtonEnabled: Boolean
         get() = email.isNotBlank() && password.isNotBlank() && !isLoading
+
+    val areTextFieldsEnabled: Boolean
+        get() = !isLoading
 }
