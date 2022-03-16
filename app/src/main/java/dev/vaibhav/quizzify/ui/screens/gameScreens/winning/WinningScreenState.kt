@@ -6,7 +6,8 @@ data class WinningScreenState(
     val profilePic: String = "",
     val rank: Int = 0,
     val isLoading: Boolean = false,
-    val isUpvoteButtonEnabled: Boolean = true,
+    val isUpvoteButtonVisible: Boolean = true,
+    val isUpvoteButtonEnabled: Boolean = true
 ) {
 
     val rankString: String

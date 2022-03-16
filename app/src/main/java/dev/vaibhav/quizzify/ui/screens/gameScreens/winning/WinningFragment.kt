@@ -52,8 +52,9 @@ class WinningFragment : Fragment(R.layout.fragment_winning) {
             profilePic.setProfilePic(it.profilePic)
             rankTv.text = it.rankString
             progressContainer.isVisible = it.isLoading
-            upvoteButton.showOrGone(it.isUpvoteButtonEnabled)
-            upvoteTv.showOrGone(it.isUpvoteButtonEnabled)
+            upvoteButton.showOrGone(it.isUpvoteButtonVisible)
+            upvoteButton.isEnabled = it.isUpvoteButtonEnabled
+            upvoteTv.showOrGone(it.isUpvoteButtonVisible)
         }
     }
 

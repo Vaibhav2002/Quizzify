@@ -55,7 +55,7 @@ class WinningViewModel @Inject constructor(
                     state.copy(
                         profilePic = user.profilePic,
                         rank = getUserRank(user.userId, it.players),
-                        isUpvoteButtonEnabled = !it.quiz.isInstantQuiz
+                        isUpvoteButtonVisible = !it.quiz.isInstantQuiz
                     )
                 }
             }

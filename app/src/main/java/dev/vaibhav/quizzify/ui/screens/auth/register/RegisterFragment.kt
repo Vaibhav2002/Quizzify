@@ -94,7 +94,6 @@ class RegisterFragment : Fragment(R.layout.fragment_register) {
             .requestIdToken(getString(R.string.web_client_id))
             .requestEmail()
             .build()
-
         googleSignInClient = GoogleSignIn.getClient(requireContext(), gso)
     }
 
