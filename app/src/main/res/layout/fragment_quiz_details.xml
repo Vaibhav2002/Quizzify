@@ -34,6 +34,15 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
+            <ImageView
+                android:id="@+id/favIcon"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_margin="16dp"
+                android:src="@drawable/ic_star_outlined"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
 
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/materialCardView2"
@@ -92,7 +101,7 @@
                     android:layout_marginTop="4dp"
                     android:ellipsize="end"
                     android:maxLines="4"
-                    android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Body1"
+                    android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Body2"
                     tools:text="This quiz is made to test your knowledge on Books" />
 
             </LinearLayout>

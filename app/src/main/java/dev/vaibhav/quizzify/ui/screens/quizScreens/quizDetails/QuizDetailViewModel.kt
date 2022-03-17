@@ -7,6 +7,7 @@ import dev.vaibhav.quizzify.data.models.remote.QuizDto
 import dev.vaibhav.quizzify.data.models.remote.UserDto
 import dev.vaibhav.quizzify.data.models.remote.game.Game
 import dev.vaibhav.quizzify.data.repo.auth.AuthRepository
+import dev.vaibhav.quizzify.data.repo.user.UserRepo
 import dev.vaibhav.quizzify.ui.usecases.GameUseCase
 import dev.vaibhav.quizzify.util.ErrorType
 import dev.vaibhav.quizzify.util.Resource
@@ -18,7 +19,8 @@ import javax.inject.Inject
 @HiltViewModel
 class QuizDetailViewModel @Inject constructor(
     private val gameUseCase: GameUseCase,
-    private val authRepository: AuthRepository
+    private val authRepository: AuthRepository,
+    private val userRepo: UserRepo
 ) : ViewModel() {
 
     private val _uiState = MutableStateFlow(QuizDetailScreenState())
@@ -33,10 +35,19 @@ class QuizDetailViewModel @Inject constructor(
 
     init {
         collectQuiz()
+        collectUser()
     }
 
     fun setData(quizDto: QuizDto) = viewModelScope.launch {
         quiz.emit(quizDto)
+    }
+
+    private fun collectUser() = viewModelScope.launch {
+        userRepo.observeCurrentUser().collectLatest { user ->
+            quiz.value?.id?.let { quizId ->
+                _uiState.update { it.copy(isFavourite = user.favourites.contains(quizId)) }
+            }
+        }
     }
 
     private fun collectQuiz() = viewModelScope.launch {
@@ -55,6 +66,10 @@ class QuizDetailViewModel @Inject constructor(
         }
     }
 
+    fun onFavouriteButtonPressed() = viewModelScope.launch {
+        quiz.value?.let { favOrUnFavQuiz() }
+    }
+
     fun onPlaySoloPressed() = viewModelScope.launch {
         quiz.value?.let {
             val game = it.toGame(isSoloGame = true, hostId = userId)
@@ -71,6 +86,21 @@ class QuizDetailViewModel @Inject constructor(
             _events.emit(
                 QuizDetailScreenEvents.NavigateToWaitingForPlayerScreen(game.gameId)
             )
+        }
+    }
+
+    private suspend fun favOrUnFavQuiz() {
+        val isFavourite = uiState.value.isFavourite
+        val quizId = quiz.value!!.id
+        val flow =
+            if (isFavourite) userRepo.removeFavourite(quizId) else userRepo.addFavourite(quizId)
+        flow.collectLatest {
+            _uiState.emit(uiState.value.copy(isLoading = it is Resource.Loading))
+            when (it) {
+                is Resource.Error -> handleError(it)
+                is Resource.Loading -> Unit
+                is Resource.Success -> _events.emit(QuizDetailScreenEvents.ShowToast(it.message))
+            }
         }
     }
 

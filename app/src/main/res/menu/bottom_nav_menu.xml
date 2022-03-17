@@ -8,10 +8,10 @@
         android:id="@+id/communityFragment"
         android:icon="@drawable/ic_search"
         android:title="Community" />
-<!--    <item-->
-<!--        android:id="@+id/favouritesFragment"-->
-<!--        android:icon="@drawable/ic_star"-->
-<!--        android:title="Favourites" />-->
+    <item
+        android:id="@+id/favouritesFragment"
+        android:icon="@drawable/ic_star"
+        android:title="Favourites" />
     <item
         android:id="@+id/profileFragment"
         android:icon="@drawable/ic_profile"

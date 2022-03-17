@@ -142,4 +142,13 @@
         android:name="dev.vaibhav.quizzify.ui.screens.about.AboutFragment"
         android:label="fragment_about"
         tools:layout="@layout/fragment_about" />
+    <fragment
+        android:id="@+id/favouritesFragment"
+        android:name="dev.vaibhav.quizzify.ui.screens.main.favourites.FavouritesFragment"
+        android:label="fragment_favourites"
+        tools:layout="@layout/fragment_favourites" >
+        <action
+            android:id="@+id/action_favouritesFragment_to_quizDetailsFragment"
+            app:destination="@id/quizDetailsFragment" />
+    </fragment>
 </navigation>

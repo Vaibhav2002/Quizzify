@@ -2,6 +2,7 @@ package dev.vaibhav.quizzify.ui.screens.quizScreens.quizDetails
 
 import android.os.Bundle
 import android.view.View
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
@@ -60,15 +61,21 @@ class QuizDetailsFragment : Fragment(R.layout.fragment_quiz_details) {
         binding.apply {
             titleTv.text = it.title
             descriptionTv.text = it.description
+            progressContainer.isVisible = it.isLoading
             categoryImage.setImageUrl(it.image)
             questionTv.text = "Questions: ${it.questionCount}"
             categoryTv.text = "Category: ${it.categoryName}"
+            favIcon.setImageResource(if (it.isFavourite) R.drawable.ic_star_filled else R.drawable.ic_star_outlined)
+            playWithFriendsBtn.isEnabled = it.isGameButtonsEnabled
+            playSoloBtn.isEnabled = it.isGameButtonsEnabled
+            favIcon.isEnabled = it.isFavButtonEnabled
         }
     }
 
     private fun initListeners() = binding.apply {
         playWithFriendsBtn.setOnClickListener { viewModel.onPlayWithFriendsPressed() }
         playSoloBtn.setOnClickListener { viewModel.onPlaySoloPressed() }
+        favIcon.setOnClickListener { viewModel.onFavouriteButtonPressed() }
     }
 
     private fun initViews() = binding.apply {

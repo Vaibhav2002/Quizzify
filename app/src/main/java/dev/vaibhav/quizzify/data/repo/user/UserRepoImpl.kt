@@ -45,8 +45,8 @@ class UserRepoImpl @Inject constructor(
     override suspend fun addFavourite(quizId: String): Flow<Resource<Unit>> = flow {
         emit(Resource.Loading())
         val user = getCurrentUser()
-        val newFavourites = user.favourites.apply { toMutableList().add(quizId) }
-        val newUser = user.copy(favourites = newFavourites)
+        val newFavourites = user.favourites.toMutableList().apply { add(quizId) }
+        val newUser = user.copy(favourites = newFavourites.toList())
         emit(updateFavourites(newUser))
     }.map { it.mapMessages("Added to favourites", "Failed to add to favourites") }
         .flowOn(Dispatchers.IO)
@@ -54,8 +54,8 @@ class UserRepoImpl @Inject constructor(
     override suspend fun removeFavourite(quizId: String): Flow<Resource<Unit>> = flow {
         emit(Resource.Loading())
         val user = getCurrentUser()
-        val newFavourites = user.favourites.apply { toMutableList().remove(quizId) }
-        val newUser = user.copy(favourites = newFavourites)
+        val newFavourites = user.favourites.toMutableList().apply { remove(quizId) }
+        val newUser = user.copy(favourites = newFavourites.toList())
         emit(updateFavourites(newUser))
     }.map { it.mapMessages("Removed from favourites", "Failed to remove from favourites") }
         .flowOn(Dispatchers.IO)

@@ -36,7 +36,8 @@ class MainActivity : AppCompatActivity() {
         val fragmentsWithBottomNav = listOf(
             R.id.homeFragment,
             R.id.communityFragment,
-            R.id.profileFragment
+            R.id.profileFragment,
+            R.id.favouritesFragment
         )
 
         navController.addOnDestinationChangedListener { _, destination, _ ->

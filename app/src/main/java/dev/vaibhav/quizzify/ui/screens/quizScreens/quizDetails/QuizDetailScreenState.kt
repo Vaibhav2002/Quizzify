@@ -6,5 +6,12 @@ data class QuizDetailScreenState(
     val image: String = "",
     val questionCount: String = "",
     val categoryName: String = "",
+    val isFavourite: Boolean = false,
     val isLoading: Boolean = false
-)
+) {
+    val isFavButtonEnabled: Boolean
+        get() = !isLoading
+
+    val isGameButtonsEnabled: Boolean
+        get() = !isLoading
+}
