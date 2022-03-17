@@ -8,6 +8,7 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import dagger.hilt.android.AndroidEntryPoint
 import dev.vaibhav.quizzify.R
+import dev.vaibhav.quizzify.data.models.remote.QuizDto
 import dev.vaibhav.quizzify.databinding.FragmentFavouritesBinding
 import dev.vaibhav.quizzify.ui.adapters.QuizAdapter
 import dev.vaibhav.quizzify.util.*
@@ -55,12 +56,22 @@ class FavouritesFragment : Fragment(R.layout.fragment_favourites) {
 
     private fun initViews() = binding.apply {
         header.setMarginTop(TITLE_TOP_MARGIN)
-        quizAdapter = QuizAdapter { _, quiz ->
+        quizAdapter = QuizAdapter(this@FavouritesFragment::showRemoveFavouriteDialog) { _, quiz ->
             viewModel.onQuizPressed(quiz)
         }
         quizRv.apply {
             setHasFixedSize(false)
             adapter = quizAdapter
+        }
+    }
+
+    private fun showRemoveFavouriteDialog(quiz: QuizDto) {
+        requireContext().showAlertDialog(
+            title = "Remove from Favourites",
+            description = "Are you sure that you want to remove this quiz from favourites",
+            positiveButtonText = "Remove"
+        ) {
+            viewModel.onQuizLongPressed(quiz)
         }
     }
 }

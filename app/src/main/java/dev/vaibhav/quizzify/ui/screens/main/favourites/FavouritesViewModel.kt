@@ -43,7 +43,7 @@ class FavouritesViewModel @Inject constructor(
         _events.emit(FavouritesScreenEvents.NavigateToQuizDetailScreen(quizDto))
     }
 
-    fun onQuizSwiped(quizDto: QuizDto) = viewModelScope.launch {
+    fun onQuizLongPressed(quizDto: QuizDto) = viewModelScope.launch {
         removeFromFavourite(quizDto)
     }
 

@@ -87,7 +87,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
     private fun initViews() = binding.apply {
         header.setMarginTop(TITLE_TOP_MARGIN)
         categoryAdapter = CategoryAdapter(viewModel::onCategoryPressed)
-        quizAdapter = QuizAdapter { quizItem, quiz ->
+        quizAdapter = QuizAdapter { _, quiz ->
             viewModel.onQuizItemPressed(quiz)
 //            val extras = FragmentNavigatorExtras(quizItem.root to quiz.id)
 //            val action =

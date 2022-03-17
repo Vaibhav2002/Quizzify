@@ -9,7 +9,8 @@ import dev.vaibhav.quizzify.data.models.remote.QuizDto
 import dev.vaibhav.quizzify.databinding.QuizItemBinding
 
 class QuizAdapter(
-    private val onQuizPressed: (QuizItemBinding, QuizDto) -> Unit
+    private val onQuizLongPress: (QuizDto) -> Unit = {},
+    private val onQuizPressed: (QuizItemBinding, QuizDto) -> Unit,
 ) : ListAdapter<QuizDto, QuizAdapter.QuizViewHolder>(QuizDto.diff) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): QuizViewHolder {
@@ -31,6 +32,10 @@ class QuizAdapter(
                     binding,
                     currentList[absoluteAdapterPosition]
                 )
+            }
+            binding.root.setOnLongClickListener {
+                onQuizLongPress(currentList[absoluteAdapterPosition])
+                true
             }
         }
 
