@@ -9,7 +9,7 @@
         android:id="@+id/homeFragment"
         android:name="dev.vaibhav.quizzify.ui.screens.main.home.HomeFragment"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_home" >
+        tools:layout="@layout/fragment_home">
         <action
             android:id="@+id/action_homeFragment_to_quizDetailsFragment"
             app:destination="@id/quizDetailsFragment" />
@@ -24,7 +24,7 @@
         android:id="@+id/communityFragment"
         android:name="dev.vaibhav.quizzify.ui.screens.main.community.CommunityFragment"
         android:label="fragment_community"
-        tools:layout="@layout/fragment_community" >
+        tools:layout="@layout/fragment_community">
         <action
             android:id="@+id/action_communityFragment_to_quizDetailsFragment"
             app:destination="@id/quizDetailsFragment" />
@@ -39,7 +39,7 @@
         android:id="@+id/profileFragment"
         android:name="dev.vaibhav.quizzify.ui.screens.main.profile.ProfileFragment"
         android:label="fragment_profile"
-        tools:layout="@layout/fragment_profile" >
+        tools:layout="@layout/fragment_profile">
         <action
             android:id="@+id/action_profileFragment_to_aboutFragment"
             app:destination="@id/aboutFragment" />
@@ -48,7 +48,7 @@
         android:id="@+id/quizDetailsFragment"
         android:name="dev.vaibhav.quizzify.ui.screens.quizScreens.quizDetails.QuizDetailsFragment"
         android:label="fragment_quiz_details"
-        tools:layout="@layout/fragment_quiz_details" >
+        tools:layout="@layout/fragment_quiz_details">
         <argument
             android:name="quiz"
             app:argType="dev.vaibhav.quizzify.data.models.remote.QuizDto" />
@@ -68,7 +68,7 @@
         android:id="@+id/waitingForPlayersFragment"
         android:name="dev.vaibhav.quizzify.ui.screens.gameScreens.waitingForPlayers.WaitingForPlayersFragment"
         android:label="fragment_waiting_for_players"
-        tools:layout="@layout/fragment_waiting_for_players" >
+        tools:layout="@layout/fragment_waiting_for_players">
         <argument
             android:name="gameId"
             app:argType="string" />
@@ -82,7 +82,7 @@
         android:id="@+id/gameFragment"
         android:name="dev.vaibhav.quizzify.ui.screens.gameScreens.game.GameFragment"
         android:label="fragment_game"
-        tools:layout="@layout/fragment_game" >
+        tools:layout="@layout/fragment_game">
         <argument
             android:name="gameId"
             app:argType="string" />
@@ -101,7 +101,7 @@
         android:id="@+id/waitingForFinishFragment"
         android:name="dev.vaibhav.quizzify.ui.screens.gameScreens.waitingForFinish.WaitingForFinishFragment"
         android:label="fragment_waiting_for_finish"
-        tools:layout="@layout/fragment_waiting_for_finish" >
+        tools:layout="@layout/fragment_waiting_for_finish">
         <argument
             android:name="gameId"
             app:argType="string" />
@@ -115,7 +115,7 @@
         android:id="@+id/winningFragment"
         android:name="dev.vaibhav.quizzify.ui.screens.gameScreens.winning.WinningFragment"
         android:label="fragment_winning"
-        tools:layout="@layout/fragment_winning" >
+        tools:layout="@layout/fragment_winning">
         <argument
             android:name="game"
             app:argType="dev.vaibhav.quizzify.data.models.remote.game.Game" />
@@ -127,7 +127,7 @@
         android:id="@+id/rankingFragment"
         android:name="dev.vaibhav.quizzify.ui.screens.gameScreens.ranking.RankingFragment"
         android:label="fragment_ranking"
-        tools:layout="@layout/fragment_ranking" >
+        tools:layout="@layout/fragment_ranking">
         <argument
             android:name="game"
             app:argType="dev.vaibhav.quizzify.data.models.remote.game.Game" />
@@ -146,7 +146,7 @@
         android:id="@+id/favouritesFragment"
         android:name="dev.vaibhav.quizzify.ui.screens.main.favourites.FavouritesFragment"
         android:label="fragment_favourites"
-        tools:layout="@layout/fragment_favourites" >
+        tools:layout="@layout/fragment_favourites">
         <action
             android:id="@+id/action_favouritesFragment_to_quizDetailsFragment"
             app:destination="@id/quizDetailsFragment" />
