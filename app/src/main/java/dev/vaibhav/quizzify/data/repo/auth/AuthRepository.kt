@@ -24,6 +24,4 @@ interface AuthRepository {
     ): Flow<Resource<Unit>>
 
     suspend fun loginUsingGoogle(data: Intent): Flow<Resource<Unit>>
-
-    suspend fun updateAvatar(avatar: String): Flow<Resource<Unit>>
 }

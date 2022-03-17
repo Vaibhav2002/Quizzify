@@ -6,7 +6,7 @@ import kotlinx.coroutines.flow.Flow
 
 interface QuizLocalDataSource {
 
-    fun getAllQuizzes(query: String, category: CategoryDto? = null): Flow<List<QuizDto>>
+    fun getAllQuizzes(query: String = "", category: CategoryDto? = null): Flow<List<QuizDto>>
 
     suspend fun insertQuizzes(quizzes: List<QuizDto>)
 

@@ -4,7 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dev.vaibhav.quizzify.data.models.local.AvatarItem
-import dev.vaibhav.quizzify.data.repo.auth.AuthRepository
+import dev.vaibhav.quizzify.data.repo.user.UserRepo
 import dev.vaibhav.quizzify.util.Constants.avatars
 import dev.vaibhav.quizzify.util.ErrorType
 import dev.vaibhav.quizzify.util.Resource
@@ -13,7 +13,7 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class AvatarSelectViewModel @Inject constructor(private val authRepository: AuthRepository) :
+class AvatarSelectViewModel @Inject constructor(private val userRepo: UserRepo) :
     ViewModel() {
 
     private val _uiState = MutableStateFlow(AvatarSelectScreenState())
@@ -50,7 +50,7 @@ class AvatarSelectViewModel @Inject constructor(private val authRepository: Auth
 
     private suspend fun updateUserAvatar() {
         val selectedAvatar = uiState.value.avatars.find { it.isSelected } ?: return
-        authRepository.updateAvatar(selectedAvatar.avatar).collectLatest {
+        userRepo.updateAvatar(selectedAvatar.avatar).collectLatest {
             _uiState.emit(uiState.value.copy(isLoading = it is Resource.Loading))
             when (it) {
                 is Resource.Error -> handleError(it)

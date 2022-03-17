@@ -6,6 +6,7 @@ import com.apollographql.apollo.coroutines.await
 import dev.vaibhav.quizzify.GetUserByIdQuery
 import dev.vaibhav.quizzify.SaveUserMutation
 import dev.vaibhav.quizzify.UpdateUserAvatarMutation
+import dev.vaibhav.quizzify.UpdateUserFavouritesMutation
 import dev.vaibhav.quizzify.data.models.remote.UserDto
 import dev.vaibhav.quizzify.util.Resource
 import dev.vaibhav.quizzify.util.SafeHasura
@@ -15,8 +16,7 @@ import javax.inject.Inject
 class HasuraUserDataSource @Inject constructor(
     private val apolloClient: ApolloClient,
     private val safeHasura: SafeHasura
-) :
-    UserDataSource {
+) : UserDataSource {
 
     override suspend fun getUserData(userId: String): Resource<UserDto> {
         val getUserQuery = GetUserByIdQuery(userId)
@@ -29,7 +29,8 @@ class HasuraUserDataSource @Inject constructor(
                         username = it.username,
                         email = it.email,
                         profilePic = it.profilePic,
-                        exp = it.exp
+                        exp = it.exp,
+                        favourites = UserDto.deserializeFavourites(it.favourites)
                     )
                 }
             }
@@ -42,7 +43,8 @@ class HasuraUserDataSource @Inject constructor(
             username = Input.fromNullable(userDto.username),
             email = Input.fromNullable(userDto.email),
             profilePic = Input.fromNullable(userDto.profilePic),
-            exp = Input.fromNullable(userDto.exp)
+            exp = Input.fromNullable(userDto.exp),
+            favourites = Input.fromNullable(UserDto.serializeFavourites(userDto.favourites))
         )
         return safeHasura.safeHasuraCall(
             call = { apolloClient.mutate(saveUserDataMutation).await() },
@@ -54,6 +56,20 @@ class HasuraUserDataSource @Inject constructor(
         val updateAvatarMutation = UpdateUserAvatarMutation(userId, Input.optional(avatar))
         return safeHasura.safeHasuraCall(
             call = { apolloClient.mutate(updateAvatarMutation).await() },
+            result = { it.update_user_by_pk?.userId }
+        ).mapToUnit()
+    }
+
+    override suspend fun updateUserFavourites(
+        userId: String,
+        favourites: List<String>
+    ): Resource<Unit> {
+        val updateFavMutation = UpdateUserFavouritesMutation(
+            userId,
+            Input.optional(UserDto.serializeFavourites(favourites))
+        )
+        return safeHasura.safeHasuraCall(
+            call = { apolloClient.mutate(updateFavMutation).await() },
             result = { it.update_user_by_pk?.userId }
         ).mapToUnit()
     }

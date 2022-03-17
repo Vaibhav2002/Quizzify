@@ -10,4 +10,6 @@ interface UserDataSource {
     suspend fun saveUserData(userDto: UserDto): Resource<Unit>
 
     suspend fun updateAvatar(userId: String, avatar: String): Resource<Unit>
+
+    suspend fun updateUserFavourites(userId: String, favourites: List<String>): Resource<Unit>
 }

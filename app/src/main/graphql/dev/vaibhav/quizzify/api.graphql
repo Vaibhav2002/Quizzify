@@ -5,6 +5,7 @@ query GetUserById($userId: String!){
         profilePic
         userId
         username
+        favourites
     }
 }
 
@@ -14,8 +15,9 @@ mutation SaveUser(
     $email:String
     $profilePic:String
     $exp:Int
+    $favourites:String
 ){
-    insert_user_one(object: {username: $username email: $email profilePic: $profilePic userId: $userId exp: $exp}){
+    insert_user_one(object: {username: $username email: $email profilePic: $profilePic userId: $userId exp: $exp, favourites: $favourites}){
         userId
         username
         email
@@ -25,11 +27,16 @@ mutation SaveUser(
 }
 
 mutation UpdateUserAvatar($userId: String!, $avatar: String) {
-  update_user_by_pk(_set: {profilePic: $avatar}, pk_columns: {userId: $userId}){
-    userId
-  }
+    update_user_by_pk(_set: {profilePic: $avatar}, pk_columns: {userId: $userId}){
+      userId
+    }
 }
 
+mutation UpdateUserFavourites($userId:String!, $favourites:String){
+    update_user_by_pk(_set: {favourites: $favourites}, pk_columns: {userId: $userId}){
+        userId
+    }
+}
 
 query GetAllQuizzes {
     quiz {

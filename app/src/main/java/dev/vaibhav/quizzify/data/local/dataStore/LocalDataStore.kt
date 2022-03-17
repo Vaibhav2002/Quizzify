@@ -1,6 +1,7 @@
 package dev.vaibhav.quizzify.data.local.dataStore
 
 import dev.vaibhav.quizzify.data.models.remote.UserDto
+import kotlinx.coroutines.flow.Flow
 
 interface LocalDataStore {
 
@@ -11,6 +12,8 @@ interface LocalDataStore {
     suspend fun removeUserLoggedIn()
 
     suspend fun getUserData(): UserDto
+
+    fun getUserDataFlow(): Flow<UserDto>
 
     suspend fun removeUserData()
 

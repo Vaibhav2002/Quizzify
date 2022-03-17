@@ -14,6 +14,10 @@ interface QuizRepo {
         categoryDto: CategoryDto? = null
     ): Flow<List<QuizDto>>
 
+    suspend fun getAllFavouriteQuizzes(
+        favourites: List<String>
+    ): Flow<List<QuizDto>>
+
     suspend fun fetchAllCategories(): Flow<Resource<Unit>>
 
     suspend fun fetchAllQuizzes(): Flow<Resource<Unit>>

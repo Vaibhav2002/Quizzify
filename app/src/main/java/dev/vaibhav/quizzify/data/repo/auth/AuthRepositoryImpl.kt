@@ -75,14 +75,6 @@ class AuthRepositoryImpl @Inject constructor(
         emit(resource)
     }
 
-    override suspend fun updateAvatar(avatar: String): Flow<Resource<Unit>> = flow {
-        val newUser = getUserData().copy(profilePic = avatar)
-        emit(Resource.Loading())
-        val resource = userDataSource.updateAvatar(newUser.userId, avatar)
-        if (resource is Resource.Success) saveUserDataInLocal(newUser)
-        emit(resource)
-    }.map { it.mapMessages("Updated Avatar", "Failed to update Avatar") }
-
     private suspend fun handleAfterGoogleLogin(resource: Resource<FirebaseUser>): Resource<Unit> {
         return if (resource is Resource.Success) {
             val uid = resource.data!!.uid

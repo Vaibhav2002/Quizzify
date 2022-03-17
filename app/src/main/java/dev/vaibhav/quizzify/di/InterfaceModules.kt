@@ -12,6 +12,8 @@ import dev.vaibhav.quizzify.data.remote.user.HasuraUserDataSource
 import dev.vaibhav.quizzify.data.remote.user.UserDataSource
 import dev.vaibhav.quizzify.data.repo.auth.AuthRepository
 import dev.vaibhav.quizzify.data.repo.auth.AuthRepositoryImpl
+import dev.vaibhav.quizzify.data.repo.user.UserRepo
+import dev.vaibhav.quizzify.data.repo.user.UserRepoImpl
 
 @Module
 @InstallIn(SingletonComponent::class)
@@ -36,4 +38,9 @@ abstract class InterfaceModules {
     abstract fun bindsAuthRepo(
         authRepositoryImpl: AuthRepositoryImpl
     ): AuthRepository
+
+    @Binds
+    abstract fun bindsUserRepo(
+        userRepoImpl: UserRepoImpl
+    ): UserRepo
 }

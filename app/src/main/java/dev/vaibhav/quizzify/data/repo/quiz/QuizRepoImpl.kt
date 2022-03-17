@@ -33,6 +33,11 @@ class QuizRepoImpl @Inject constructor(
     ): Flow<List<QuizDto>> =
         quizLocalDataSource.getAllQuizzes(query, categoryDto).flowOn(Dispatchers.IO)
 
+    override suspend fun getAllFavouriteQuizzes(favourites: List<String>) =
+        quizLocalDataSource.getAllQuizzes()
+            .map { it.filter { quiz -> quiz.id in favourites } }
+            .flowOn(Dispatchers.IO)
+
     override suspend fun fetchAllCategories(): Flow<Resource<Unit>> = flow {
         emit(Resource.Loading())
         val resource = quizRemoteDataSource.getAllCategories()
@@ -86,7 +91,7 @@ class QuizRepoImpl @Inject constructor(
     }
 
     override suspend fun getQuizzesCreatedByUser(userId: String) =
-        getAllQuizzes("").map { quizzes ->
+        getAllQuizzes().map { quizzes ->
             quizzes.filter { it.createdByUserId == userId }
         }
 

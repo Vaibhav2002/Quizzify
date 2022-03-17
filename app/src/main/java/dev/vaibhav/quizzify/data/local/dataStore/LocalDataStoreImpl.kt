@@ -7,6 +7,7 @@ import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.stringPreferencesKey
 import com.google.gson.Gson
 import dev.vaibhav.quizzify.data.models.remote.UserDto
+import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.map
 import javax.inject.Inject
@@ -31,10 +32,13 @@ class LocalDataStoreImpl @Inject constructor(private val dataStore: DataStore<Pr
         dataStore.edit { it.remove(LOGIN_KEy) }
     }
 
-    override suspend fun getUserData(): UserDto =
-        dataStore.data.map {
+    override fun getUserDataFlow(): Flow<UserDto> {
+        return dataStore.data.map {
             Gson().fromJson(it[USER_KEY], UserDto::class.java)
-        }.first()
+        }
+    }
+
+    override suspend fun getUserData(): UserDto = getUserDataFlow().first()
 
     override suspend fun removeUserData() {
         dataStore.edit { it.remove(USER_KEY) }
