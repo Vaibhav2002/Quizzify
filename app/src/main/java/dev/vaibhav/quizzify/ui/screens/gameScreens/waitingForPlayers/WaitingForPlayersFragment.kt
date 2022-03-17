@@ -44,6 +44,7 @@ class WaitingForPlayersFragment : Fragment(R.layout.fragment_waiting_for_players
             playerAdapter.submitList(it.players)
             progressContainer.isVisible = it.isLoading
             startGameBtn.showOrGone(it.isStartGameButtonVisible)
+            startGameBtn.isEnabled = it.isStartGameButtonEnabled
         }
     }
 

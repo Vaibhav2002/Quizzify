@@ -7,4 +7,7 @@ data class WaitingForPlayerScreenState(
     val players: List<PlayerItem> = emptyList(),
     val isStartGameButtonVisible: Boolean = false,
     val isLoading: Boolean = false
-)
+) {
+    val isStartGameButtonEnabled: Boolean
+        get() = !isLoading
+}
