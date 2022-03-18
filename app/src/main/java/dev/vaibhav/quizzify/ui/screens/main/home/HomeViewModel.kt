@@ -50,6 +50,18 @@ class HomeViewModel @Inject constructor(
             }
     }
 
+    suspend fun isHomeSpotLightComplete() =
+        localDataStore.getSpotLightCheck().isHomeSpotLightComplete
+
+    fun onSpotLightEnd() = viewModelScope.launch {
+        setHomeSpotLightComplete()
+    }
+
+    suspend fun setHomeSpotLightComplete() {
+        val spotLight = localDataStore.getSpotLightCheck().copy(isHomeSpotLightComplete = true)
+        localDataStore.saveSpotLightCheck(spotLight)
+    }
+
     fun onJoinGameButtonPressed() = viewModelScope.launch {
         _events.emit(HomeScreenEvents.OpenInviteCodeDialog)
     }

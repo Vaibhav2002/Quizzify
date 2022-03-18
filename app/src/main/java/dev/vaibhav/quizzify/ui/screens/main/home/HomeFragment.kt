@@ -28,6 +28,26 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
     private lateinit var categoryAdapter: CategoryAdapter
     private lateinit var quizAdapter: QuizAdapter
 
+//    companion object {
+//        private val spotlightViews = listOf(
+//            SpotLightView(
+//                R.id.categoriesRv,
+//                "Instant Quiz",
+//                "Pressing on any of these categories will start a new random quiz."
+//            ),
+//            SpotLightView(
+//                R.id.popularQuizRv,
+//                "Popular Quizzes",
+//                "These are the top 5 quizzes with the most votes."
+//            ),
+//            SpotLightView(
+//                R.id.joinGameBtn,
+//                "Join an existing game",
+//                "Press this and enter the game invite code to join that game."
+//            )
+//        )
+//    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 //        setUpForContainerTransform()
@@ -43,7 +63,6 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
             categoryAdapter.submitList(it.categories)
             progressContainer.isVisible = it.isLoading
             swipeRefresh.isRefreshing = it.isRefreshing
-            popularQuizRv.scrollToPosition(0)
         }
     }
 

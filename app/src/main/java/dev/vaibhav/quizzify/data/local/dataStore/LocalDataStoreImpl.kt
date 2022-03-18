@@ -6,6 +6,7 @@ import androidx.datastore.preferences.core.booleanPreferencesKey
 import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.stringPreferencesKey
 import com.google.gson.Gson
+import dev.vaibhav.quizzify.data.models.local.SpotLightCheck
 import dev.vaibhav.quizzify.data.models.remote.UserDto
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.first
@@ -19,6 +20,7 @@ class LocalDataStoreImpl @Inject constructor(private val dataStore: DataStore<Pr
         private val USER_KEY = stringPreferencesKey("UserData")
         private val LOGIN_KEy = booleanPreferencesKey("IsLoggedIn")
         private val ON_BOARDING_KEY = booleanPreferencesKey("onboarding")
+        private val SPOTLIGHT_KEY = stringPreferencesKey("SpotlightCheck")
     }
 
     override suspend fun isUserLoggedIn(): Boolean =
@@ -55,4 +57,16 @@ class LocalDataStoreImpl @Inject constructor(private val dataStore: DataStore<Pr
     override suspend fun setOnBoardingComplete() {
         dataStore.edit { it[ON_BOARDING_KEY] = true }
     }
+
+    override suspend fun saveSpotLightCheck(spotLightCheck: SpotLightCheck) {
+        dataStore.edit {
+            val serializedSpotlight = Gson().toJson(spotLightCheck)
+            it[SPOTLIGHT_KEY] = serializedSpotlight
+        }
+    }
+
+    override suspend fun getSpotLightCheck(): SpotLightCheck = dataStore.data.map { pref ->
+        val serialized = pref[SPOTLIGHT_KEY]
+        serialized?.let { Gson().fromJson(it, SpotLightCheck::class.java) } ?: SpotLightCheck()
+    }.first()
 }

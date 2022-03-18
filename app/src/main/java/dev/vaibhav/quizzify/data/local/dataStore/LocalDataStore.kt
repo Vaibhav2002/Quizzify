@@ -1,5 +1,6 @@
 package dev.vaibhav.quizzify.data.local.dataStore
 
+import dev.vaibhav.quizzify.data.models.local.SpotLightCheck
 import dev.vaibhav.quizzify.data.models.remote.UserDto
 import kotlinx.coroutines.flow.Flow
 
@@ -22,4 +23,8 @@ interface LocalDataStore {
     suspend fun isOnBoardingComplete(): Boolean
 
     suspend fun setOnBoardingComplete()
+
+    suspend fun saveSpotLightCheck(spotLightCheck: SpotLightCheck)
+
+    suspend fun getSpotLightCheck(): SpotLightCheck
 }

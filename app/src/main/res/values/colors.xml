@@ -34,4 +34,6 @@
     <color name="green">#00ff00</color>
     <color name="red">#ff0000</color>
 
+    <color name="spotlightBackground">#90000000</color>
+
 </resources>
