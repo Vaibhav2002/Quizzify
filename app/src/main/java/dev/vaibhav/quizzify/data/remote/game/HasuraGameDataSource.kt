@@ -30,7 +30,8 @@ class HasuraGameDataSource @Inject constructor(
             quiz = Input.optional(typeConverters.fromQuiz(game.quiz)),
             gameState = Input.optional(game.gameState),
             inviteCode = Input.optional(game.inviteCode),
-            players = Input.optional(typeConverters.fromPlayerList(game.players))
+            players = Input.optional(typeConverters.fromPlayerList(game.players)),
+            timestamp = Input.optional(game.timeStamp.toString())
         )
         return safeHasura.safeHasuraCall(
             call = { apolloClient.mutate(mutation).await() },
@@ -98,7 +99,8 @@ class HasuraGameDataSource @Inject constructor(
         players = typeConverters.toPlayerList(data.players),
         hostId = data.hostId,
         gameState = data.gameState,
-        inviteCode = data.inviteCode
+        inviteCode = data.inviteCode,
+        timeStamp = data.timestamp.toLong()
     )
 
     private fun getGameFromData(data: ObserveGameSubscription.Game_by_pk) = Game(
@@ -107,7 +109,8 @@ class HasuraGameDataSource @Inject constructor(
         players = typeConverters.toPlayerList(data.players),
         hostId = data.hostId,
         gameState = data.gameState,
-        inviteCode = data.inviteCode
+        inviteCode = data.inviteCode,
+        timeStamp = data.timestamp.toLong()
     )
 
     private fun getGamesFromData(data: List<GetAllGamesQuery.Game>) = data.map {
@@ -117,7 +120,8 @@ class HasuraGameDataSource @Inject constructor(
             players = typeConverters.toPlayerList(it.players),
             hostId = it.hostId,
             gameState = it.gameState,
-            inviteCode = it.inviteCode
+            inviteCode = it.inviteCode,
+            timeStamp = it.timestamp.toLong()
         )
     }
 }

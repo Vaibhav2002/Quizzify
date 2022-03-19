@@ -28,7 +28,7 @@ mutation SaveUser(
 
 mutation UpdateUserAvatar($userId: String!, $avatar: String) {
     update_user_by_pk(_set: {profilePic: $avatar}, pk_columns: {userId: $userId}){
-      userId
+        userId
     }
 }
 
@@ -52,6 +52,7 @@ query GetAllQuizzes {
         name
         questions
         votes
+        timestamp
     }
 }
 
@@ -72,6 +73,7 @@ mutation SaveNewQuiz(
     $name:String,
     $questions:String,
     $votes:Int,
+    $timestamp:String
 ) {
     insert_quiz_one(object: {
         id: $id,
@@ -81,7 +83,8 @@ mutation SaveNewQuiz(
         description: $description,
         name: $name,
         questions: $questions,
-        votes: $votes
+        votes: $votes,
+        timestamp:$timestamp
     }){
         id
     }
@@ -100,6 +103,7 @@ mutation UpsertGame(
     $gameState: String
     $inviteCode: String
     $players: String
+    $timestamp:String
 ) {
     insert_game_one(object: {
         gameId: $gameId,
@@ -108,6 +112,7 @@ mutation UpsertGame(
         inviteCode: $inviteCode,
         players: $players,
         quiz: $quiz
+        timestamp:$timestamp
     }, on_conflict: {constraint: game_pkey, update_columns: [gameState, players]}) {
         gameId
     }
@@ -121,6 +126,7 @@ query GetGameById($gameId: String!) {
         inviteCode
         players
         quiz
+        timestamp
     }
 }
 
@@ -132,6 +138,7 @@ query GetAllGames {
         inviteCode
         players
         quiz
+        timestamp
     }
 }
 
@@ -155,5 +162,6 @@ subscription ObserveGame($gameId: String!) {
         inviteCode
         players
         quiz
+        timestamp
     }
 }

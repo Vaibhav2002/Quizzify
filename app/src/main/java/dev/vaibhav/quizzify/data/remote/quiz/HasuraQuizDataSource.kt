@@ -52,6 +52,7 @@ class HasuraQuizDataSource @Inject constructor(
             description = Input.optional(quizDto.description),
             questions = Input.optional(typeConverters.fromQuestionList(quizDto.questions)),
             votes = Input.optional(quizDto.votes),
+            timestamp = Input.optional(quizDto.timeStamp.toString())
         )
         return safeHasura.safeHasuraCall(
             call = { apolloClient.mutate(mutation).await() },
@@ -78,7 +79,8 @@ class HasuraQuizDataSource @Inject constructor(
             category = CategoryDto(it.category!!.id, it.category.name, it.category.image),
             questions = questions,
             questionCount = questions.size,
-            id = it.id
+            id = it.id,
+            timeStamp = it.timestamp.toLong()
         )
     }
 
