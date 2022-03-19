@@ -34,6 +34,8 @@ class FavouritesFragment : Fragment(R.layout.fragment_favourites) {
     private fun collectUiState() = viewModel.uiState.launchAndCollectLatest(viewLifecycleOwner) {
         quizAdapter.submitList(it.quizzes)
         binding.progressContainer.isVisible = it.isLoading
+        binding.emptyStateContainer.isVisible = it.isEmptyStateVisible
+        binding.emptyState.emptyStateText.text = getString(R.string.favourites_empty_state)
     }
 
     private fun collectUiEvents() = viewModel.events.launchAndCollectLatest(viewLifecycleOwner) {

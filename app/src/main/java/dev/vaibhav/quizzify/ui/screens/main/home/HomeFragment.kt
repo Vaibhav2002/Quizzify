@@ -27,6 +27,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 
     private lateinit var categoryAdapter: CategoryAdapter
     private lateinit var quizAdapter: QuizAdapter
+//    private var spotlight: Spotlight? = null
 
 //    companion object {
 //        private val spotlightViews = listOf(
@@ -105,7 +106,9 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 
     private fun initViews() = binding.apply {
         header.setMarginTop(TITLE_TOP_MARGIN)
-        categoryAdapter = CategoryAdapter(viewModel::onCategoryPressed)
+        categoryAdapter = CategoryAdapter {
+            viewModel.onCategoryPressed(it)
+        }
         quizAdapter = QuizAdapter { _, quiz ->
             viewModel.onQuizItemPressed(quiz)
 //            val extras = FragmentNavigatorExtras(quizItem.root to quiz.id)

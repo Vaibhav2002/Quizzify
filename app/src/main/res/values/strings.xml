@@ -33,5 +33,6 @@
     <string name="no_internet_title">No Internet</string>
     <string name="no_internet_description">No Internet</string>
     <string name="vaibhav_jaiswal"><u>Vaibhav Jaiswal</u></string>
+    <string name="favourites_empty_state">Looks like you don\'t have any favourites. Add some quizzes to your favourites to see them here.</string>
 
 </resources>

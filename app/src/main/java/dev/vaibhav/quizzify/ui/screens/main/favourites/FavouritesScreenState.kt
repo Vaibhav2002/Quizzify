@@ -5,4 +5,8 @@ import dev.vaibhav.quizzify.data.models.remote.QuizDto
 data class FavouritesScreenState(
     val quizzes: List<QuizDto> = emptyList(),
     val isLoading: Boolean = false
-)
+) {
+
+    val isEmptyStateVisible: Boolean
+        get() = quizzes.isEmpty() && !isLoading
+}

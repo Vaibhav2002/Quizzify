@@ -80,11 +80,8 @@ fun Fragment.showSpotlight(
     view: View,
     spotlightViews: List<SpotLightView>,
     onSpotLightEnd: () -> Unit
-) {
-    val spotlight = getSpotLight(view, spotlightViews) {
+): Spotlight {
+    return getSpotLight(view, spotlightViews) {
         onSpotLightEnd()
-        enableDisableButtonsWhileSpotlight(view, spotlightViews, true)
     }
-    enableDisableButtonsWhileSpotlight(view, spotlightViews, false)
-    spotlight.start()
 }
