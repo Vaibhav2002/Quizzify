@@ -9,6 +9,20 @@ plugins {
 }
 
 android {
+    signingConfigs {
+        debug {
+            storeFile file('E:\\AndroidStudioProjects\\keystore\\quizzify.jks')
+            storePassword 'Vaibhav3011'
+            keyAlias 'quizzify'
+            keyPassword 'Vaibhav3011'
+        }
+        release {
+            storeFile file('E:\\AndroidStudioProjects\\keystore\\quizzify.jks')
+            keyAlias 'quizzify'
+            storePassword 'Vaibhav3011'
+            keyPassword 'Vaibhav3011'
+        }
+    }
     compileSdk 31
 
     defaultConfig {
