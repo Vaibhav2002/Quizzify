@@ -1,4 +1,4 @@
-![](media/banner/Quizzify - slides.png)
+![](media/banner/quizzify-banner.png)
 
 # **Quizzify** 
 
@@ -107,10 +107,10 @@ You can even create quizzes of your own and play with friends. So go on, create 
 
 |||||
 |:----------------------------------------:|:-----------------------------------------:|:-----------------------------------------: |:-----------------------------------------: |
-| ![](media/onboarding1.jpg) | ![](media/onboarding2.jpg) | ![](media/onboarding3.jpg) | ![](media/onboarding4.jpg) |
-| ![](media/getting-started.jpg)  | ![](media/username.jpg) | ![](media/weight.jpg)    | ![](media/age.jpg) |
-| ![](media/water-dashboard.jpg) | ![](media/sleep-dashboard.jpg)    | ![](media/water-stats.jpg)      | ![](media/sleep-stats.jpg) |
-| ![](media/profile.jpg)  |    ![](media/leaderboard.jpg)    | ![](media/about.jpg)        | ![](media/splash.jpg) |
+| ![](media/screenshots/onboarding-1.jpg) | ![](media/screenshots/onboarding-2.jpg) | ![](media/screenshots/onboarding-3.jpg) | ![](media/screenshots/profile.jpg) |
+| ![](media/screenshots/getting-started.jpg)  | ![](media/screenshots/login.jpg) | ![](media/screenshots/register.jpg)    | ![](media/screenshots/avatar.jpg) |
+| ![](media/screenshots/home.jpg) | ![](media/screenshots/community.jpg)    | ![](media/screenshots/favourites.jpg)      | ![](media/screenshots/create-quiz.jpg) |
+| ![](media/screenshots/create-question.jpg)  |    ![](media/screenshots/quiz-detail.jpg)    | ![](media/screenshots/game.jpg)        | ![](media/screenshots/finish.jpg) |
 
 
 ### Technical details 
