@@ -1,8 +1,8 @@
-![](media/banner/Quizzify - slides.png)
+![](media/banner/quizzify-banner.png)
 
 # **Quizzify** 
 
-**Quizzify** is an app in which we can play unlimited quizzes with our friends for free.
+**Quizzify** is an app in which we can play unlimited quizzes with our friends for free. Gain some more general knowledge while having fun with friends.
 
 # Video Introduction 📹
 
@@ -107,10 +107,10 @@ You can even create quizzes of your own and play with friends. So go on, create 
 
 |||||
 |:----------------------------------------:|:-----------------------------------------:|:-----------------------------------------: |:-----------------------------------------: |
-| ![](media/onboarding1.jpg) | ![](media/onboarding2.jpg) | ![](media/onboarding3.jpg) | ![](media/onboarding4.jpg) |
-| ![](media/getting-started.jpg)  | ![](media/username.jpg) | ![](media/weight.jpg)    | ![](media/age.jpg) |
-| ![](media/water-dashboard.jpg) | ![](media/sleep-dashboard.jpg)    | ![](media/water-stats.jpg)      | ![](media/sleep-stats.jpg) |
-| ![](media/profile.jpg)  |    ![](media/leaderboard.jpg)    | ![](media/about.jpg)        | ![](media/splash.jpg) |
+| ![](media/screenshots/onboarding-1.jpg) | ![](media/screenshots/onboarding-2.jpg) | ![](media/screenshots/onboarding-3.jpg) | ![](media/screenshots/profile.jpg) |
+| ![](media/screenshots/getting-started.jpg)  | ![](media/screenshots/login.jpg) | ![](media/screenshots/register.jpg)    | ![](media/screenshots/avatar.jpg) |
+| ![](media/screenshots/home.jpg) | ![](media/screenshots/community.jpg)    | ![](media/screenshots/favourites.jpg)      | ![](media/screenshots/create-quiz.jpg) |
+| ![](media/screenshots/create-question.jpg)  |    ![](media/screenshots/quiz-detail.jpg)    | ![](media/screenshots/game.jpg)        | ![](media/screenshots/finish.jpg) |
 
 
 ### Technical details 
@@ -187,11 +187,10 @@ This app uses [***MVVM (Model View View-Model)***](https://developer.android.com
 
 ## If you like my projects and want to support me to build more cool open source projects
   
-<a href="https://www.buymeacoffee.com/VaibhavJaiswal"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=VaibhavJaiswal&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff"></a>
-
+[!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/yellow_img.png)](https://www.buymeacoffee.com/VaibhavJaiswal)
 ---
 
- ## Contact
+## Contact
 If you need any help, you can connect with me.
 
 Visit:- [Vaibhav Jaiswal](https://vaibhavjaiswal.vercel.app/#/)
