@@ -4,31 +4,30 @@ import dev.vaibhav.quizzify.data.models.remote.game.Game
 import dev.vaibhav.quizzify.data.models.remote.game.GameState
 import dev.vaibhav.quizzify.data.models.remote.game.Player
 import dev.vaibhav.quizzify.data.remote.game.GameDataSource
-import dev.vaibhav.quizzify.util.DATA_NULL
-import dev.vaibhav.quizzify.util.Resource
-import dev.vaibhav.quizzify.util.mapMessages
-import dev.vaibhav.quizzify.util.mapTo
-import kotlinx.coroutines.Dispatchers
+import dev.vaibhav.quizzify.util.*
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.flow.map
 import javax.inject.Inject
 
-class GameRepoImpl @Inject constructor(private val gameDataSource: GameDataSource) : GameRepo {
+class GameRepoImpl @Inject constructor(
+    private val gameDataSource: GameDataSource,
+    private val dispatchers: DispatcherProvider
+) : GameRepo {
 
     override suspend fun addGame(game: Game): Flow<Resource<Unit>> = flow {
         emit(Resource.Loading())
         emit(gameDataSource.upsertGame(game))
     }.map { it.mapMessages("Created Game", "Failed to create game") }
-        .flowOn(Dispatchers.IO)
+        .flowOn(dispatchers.io)
 
     override suspend fun connectToGame(gameId: String, player: Player): Flow<Resource<Unit>> =
         flow {
             emit(Resource.Loading())
             emit(gameDataSource.connectToGame(gameId, player))
         }.map { it.mapMessages("Connected to Game", "Failed to connect to game") }
-            .flowOn(Dispatchers.IO)
+            .flowOn(dispatchers.io)
 
     override suspend fun observeGame(gameId: String): Flow<Resource<Game>> =
         gameDataSource.observeGame(gameId)
@@ -37,7 +36,7 @@ class GameRepoImpl @Inject constructor(private val gameDataSource: GameDataSourc
         emit(Resource.Loading())
         emit(gameDataSource.updateGameState(gameId, GameState.STARTED.toString()))
     }.map { it.mapMessages("Game Started", "Failed to start game") }
-        .flowOn(Dispatchers.IO)
+        .flowOn(dispatchers.io)
 
     override suspend fun doesGameExist(gameId: String): Flow<Resource<Boolean>> = flow {
         emit(Resource.Loading())
@@ -66,14 +65,14 @@ class GameRepoImpl @Inject constructor(private val gameDataSource: GameDataSourc
         val newGame = game.copy(players = newPlayerList)
         emit(gameDataSource.upsertGame(newGame))
     }.map { it.mapMessages("Successfully left Game", "Failed to leave game") }
-        .flowOn(Dispatchers.IO)
+        .flowOn(dispatchers.io)
 
     override suspend fun cancelGame(gameId: String): Flow<Resource<Unit>> = flow {
         emit(Resource.Loading())
         emit(gameDataSource.updateGameState(gameId, GameState.CANCELED.name))
     }.map {
         it.mapMessages("Canceled Game", "Failed to cancel game")
-    }.flowOn(Dispatchers.IO)
+    }.flowOn(dispatchers.io)
 
     override suspend fun completeGame(game: Game, player: Player): Flow<Resource<Unit>> = flow {
         emit(Resource.Loading())
@@ -88,7 +87,7 @@ class GameRepoImpl @Inject constructor(private val gameDataSource: GameDataSourc
         )
         emit(gameDataSource.upsertGame(newGame))
     }.map { it.mapMessages("Game finished", "Failed to finish Game") }
-        .flowOn(Dispatchers.IO)
+        .flowOn(dispatchers.io)
 
     override suspend fun submitAnswer(game: Game, player: Player): Flow<Resource<Unit>> = flow {
         emit(Resource.Loading())
@@ -100,7 +99,7 @@ class GameRepoImpl @Inject constructor(private val gameDataSource: GameDataSourc
         val newGame = game.copy(players = newPlayerList)
         emit(gameDataSource.upsertGame(newGame))
     }.map { it.mapMessages("Answer submitted", "Failed to submit answer") }
-        .flowOn(Dispatchers.IO)
+        .flowOn(dispatchers.io)
 
     override suspend fun getAllGamesOfUser(userId: String): Flow<Resource<List<Game>>> = flow {
         emit(Resource.Loading())

@@ -6,11 +6,7 @@ import dev.vaibhav.quizzify.data.models.remote.CategoryDto
 import dev.vaibhav.quizzify.data.models.remote.QuizDto
 import dev.vaibhav.quizzify.data.remote.quiz.InstantQuizDataSource
 import dev.vaibhav.quizzify.data.remote.quiz.QuizRemoteDataSource
-import dev.vaibhav.quizzify.util.Resource
-import dev.vaibhav.quizzify.util.mapMessages
-import dev.vaibhav.quizzify.util.mapTo
-import dev.vaibhav.quizzify.util.mapToUnit
-import kotlinx.coroutines.Dispatchers
+import dev.vaibhav.quizzify.util.*
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
@@ -21,22 +17,23 @@ import javax.inject.Inject
 class QuizRepoImpl @Inject constructor(
     private val quizLocalDataSource: QuizLocalDataSource,
     private val quizRemoteDataSource: QuizRemoteDataSource,
-    private val instantQuizDataSource: InstantQuizDataSource
+    private val instantQuizDataSource: InstantQuizDataSource,
+    private val dispatchers: DispatcherProvider
 ) : QuizRepo {
 
     override val allCategories: Flow<List<CategoryDto>>
-        get() = quizLocalDataSource.getAllCategories().flowOn(Dispatchers.IO)
+        get() = quizLocalDataSource.getAllCategories().flowOn(dispatchers.io)
 
     override suspend fun getAllQuizzes(
         query: String,
         categoryDto: CategoryDto?
     ): Flow<List<QuizDto>> =
-        quizLocalDataSource.getAllQuizzes(query, categoryDto).flowOn(Dispatchers.IO)
+        quizLocalDataSource.getAllQuizzes(query, categoryDto).flowOn(dispatchers.io)
 
     override suspend fun getAllFavouriteQuizzes(favourites: List<String>) =
         quizLocalDataSource.getAllQuizzes()
             .map { it.filter { quiz -> quiz.id in favourites } }
-            .flowOn(Dispatchers.IO)
+            .flowOn(dispatchers.io)
 
     override suspend fun fetchAllCategories(): Flow<Resource<Unit>> = flow {
         emit(Resource.Loading())
@@ -44,7 +41,7 @@ class QuizRepoImpl @Inject constructor(
         if (resource is Resource.Success)
             quizLocalDataSource.insertCategories(resource.data!!)
         emit(resource.mapToUnit())
-    }.flowOn(Dispatchers.IO)
+    }.flowOn(dispatchers.io)
 
     override suspend fun fetchAllQuizzes(): Flow<Resource<Unit>> = flow {
         emit(Resource.Loading())
@@ -52,7 +49,7 @@ class QuizRepoImpl @Inject constructor(
         if (resource is Resource.Success)
             quizLocalDataSource.insertQuizzes(resource.data!!.shuffled())
         emit(resource.mapToUnit())
-    }.flowOn(Dispatchers.IO)
+    }.flowOn(dispatchers.io)
 
     override suspend fun fetchInstantQuiz(
         count: Int,

@@ -7,20 +7,19 @@ import dev.vaibhav.quizzify.data.local.dataStore.LocalDataStore
 import dev.vaibhav.quizzify.data.models.remote.UserDto
 import dev.vaibhav.quizzify.data.remote.auth.AuthDataSource
 import dev.vaibhav.quizzify.data.remote.user.UserDataSource
+import dev.vaibhav.quizzify.util.*
 import dev.vaibhav.quizzify.util.Constants.avatars
-import dev.vaibhav.quizzify.util.DATA_NULL
-import dev.vaibhav.quizzify.util.Resource
-import dev.vaibhav.quizzify.util.mapMessages
-import dev.vaibhav.quizzify.util.mapToUnit
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.flow.map
 import javax.inject.Inject
 
 class AuthRepositoryImpl @Inject constructor(
     private val authDataSource: AuthDataSource,
     private val userDataSource: UserDataSource,
-    private val dataStore: LocalDataStore
+    private val dataStore: LocalDataStore,
+    private val dispatchers: DispatcherProvider
 ) : AuthRepository {
     override val currentUserId: String
         get() = authDataSource.userId
@@ -46,7 +45,7 @@ class AuthRepositoryImpl @Inject constructor(
         emit(resource.mapToUnit())
     }.map {
         it.mapMessages("Successfully logged in user", errorMessage = "Failed to login User")
-    }
+    }.flowOn(dispatchers.io)
 
     override suspend fun registerUser(
         username: String,
@@ -60,7 +59,7 @@ class AuthRepositoryImpl @Inject constructor(
             if (res is Resource.Success) registerResource else res
         } else registerResource
         emit(resource.mapToUnit())
-    }
+    }.flowOn(dispatchers.io)
 
     override suspend fun loginUsingGoogle(data: Intent): Flow<Resource<Unit>> = flow {
         emit(Resource.Loading())
@@ -73,7 +72,7 @@ class AuthRepositoryImpl @Inject constructor(
         val signInResource = authDataSource.signInUsingCredential(credential)
         val resource = handleAfterGoogleLogin(signInResource)
         emit(resource)
-    }
+    }.flowOn(dispatchers.io)
 
     private suspend fun handleAfterGoogleLogin(resource: Resource<FirebaseUser>): Resource<Unit> {
         return if (resource is Resource.Success) {

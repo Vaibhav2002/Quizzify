@@ -6,21 +6,25 @@ plugins {
     id 'dagger.hilt.android.plugin'
     id 'androidx.navigation.safeargs'
     id "com.apollographql.apollo"
+    id 'com.google.firebase.crashlytics'
 }
 
 android {
+    def propsFile = rootProject.file('keystore.properties')
+    def props = new Properties()
+    props.load(new FileInputStream(propsFile))
     signingConfigs {
         debug {
-            storeFile file('E:\\AndroidStudioProjects\\keystore\\quizzify.jks')
-            storePassword 'Vaibhav3011'
-            keyAlias 'quizzify'
-            keyPassword 'Vaibhav3011'
+            storeFile = file(props['storeFile'])
+            storePassword = props['storePassword']
+            keyAlias = props['keyAlias']
+            keyPassword = props['keyPassword']
         }
         release {
-            storeFile file('E:\\AndroidStudioProjects\\keystore\\quizzify.jks')
-            keyAlias 'quizzify'
-            storePassword 'Vaibhav3011'
-            keyPassword 'Vaibhav3011'
+            storeFile = file(props['storeFile'])
+            keyAlias = props['storePassword']
+            storePassword = props['keyAlias']
+            keyPassword = props['keyPassword']
         }
     }
     compileSdk 31
@@ -55,6 +59,7 @@ android {
 
 }
 
+
 dependencies {
 
     implementation 'androidx.core:core-ktx:1.7.0'
@@ -76,6 +81,8 @@ dependencies {
     implementation platform('com.google.firebase:firebase-bom:29.0.3')
     implementation 'com.google.firebase:firebase-firestore-ktx'
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-play-services:1.6.0"
+    implementation 'com.google.firebase:firebase-crashlytics'
+    implementation 'com.google.firebase:firebase-analytics'
 
     //hilt
     implementation "com.google.dagger:hilt-android:$hilt_version"
