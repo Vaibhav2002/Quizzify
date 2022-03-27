@@ -2,7 +2,7 @@
 
 # **Quizzify** 
 
-**Quizzify** is an app in which we can play unlimited quizzes with our friends for free.
+**Quizzify** is an app in which we can play unlimited quizzes with our friends for free. Gain some more general knowledge while having fun with friends.
 
 # Video Introduction 📹
 
@@ -187,11 +187,10 @@ This app uses [***MVVM (Model View View-Model)***](https://developer.android.com
 
 ## If you like my projects and want to support me to build more cool open source projects
   
-<a href="https://www.buymeacoffee.com/VaibhavJaiswal"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=VaibhavJaiswal&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff"></a>
-
+[!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/yellow_img.png)](https://www.buymeacoffee.com/VaibhavJaiswal)
 ---
 
- ## Contact
+## Contact
 If you need any help, you can connect with me.
 
 Visit:- [Vaibhav Jaiswal](https://vaibhavjaiswal.vercel.app/#/)
