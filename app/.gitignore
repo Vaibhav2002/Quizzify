@@ -1,6 +1,4 @@
 /build
 google-services.json
-/src/main/res/values/secrets.xml
-/src/main/java/dev/vaibhav/quizzify/util/GraphQLSecrets.kt
 /src/main/graphql/dev/vaibhav/quizzify/schema.json
 /src/main/java/dev/vaibhav/quizzify/util/Sample.kt
