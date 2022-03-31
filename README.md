@@ -32,7 +32,7 @@ Open strings.xml and google web client url for Firebase google auth
 <string name="web_client_id"></string>
 ```
 
-Open GraphQLSecrets.kt in util package and add your Auth0 credentials
+Open GraphQLSecrets.kt in util package and add your Hasura credentials
 
 ```kotlin
 //Add your hasura url here
