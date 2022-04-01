@@ -25,7 +25,7 @@ To know more about how I build this project, read my article on https://vaibhav2
 - Create project in Firebase, enable authentication (email and Google Auth)  and download google-services.json and paste in the app folder.
 - Sign up hasura, connect database and do the following:
 
-Open strings.xml and google web client url for Firebase google auth
+Open secrets.xml and google web client url for Firebase google auth
 
 ```xml
 <!--    add your google web cient id here-->
